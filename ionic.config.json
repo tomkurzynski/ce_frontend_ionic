@@ -1,0 +1,7 @@
+{
+  "name": "creatEvent-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
