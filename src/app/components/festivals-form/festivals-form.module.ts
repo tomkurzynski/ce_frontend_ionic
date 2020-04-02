@@ -12,7 +12,8 @@ import { FestivalsFormComponent } from './festivals-form.component';
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    RouterModule.forChild([{ path: '', component: FestivalsFormComponent }])
   ],
   exports: [FestivalsFormComponent, RouterModule]
 })

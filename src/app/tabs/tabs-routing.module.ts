@@ -29,7 +29,7 @@ const routes: Routes = [
           }
         ]
       },
-      { path: 'festivals', 
+      { path: 'festivals/:id', 
         children: [
           {
             path: '',
