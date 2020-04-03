@@ -16,6 +16,9 @@ export class FestivalService {
     // Festival
   }
 
+  getFestival(id: string) {
+    return this.httpClient.get<Festival>(this.baseUrl + '/' + id);
+  }
   // public save(festival: Festival) {
   //   return this.httpClient.post<Festival[]>(this.baseUrl+'/update/{id}', festival)
   // }

@@ -43,7 +43,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../components/festivals-form/festivals-form.module').then(m => m.FestivalsFormModule)
+              import('../components/festival-dashboard/festival-dashboard.module').then(m => m.FestivalDashboardModule)
           }
         ]
       }, 
