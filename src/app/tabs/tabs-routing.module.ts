@@ -29,6 +29,15 @@ const routes: Routes = [
           }
         ]
       },
+      { path: 'festivals', 
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../components/festivals-form/festivals-form.module').then(m => m.FestivalsFormModule)
+          }
+        ]
+      },
       { path: 'festivals/:id', 
         children: [
           {
