@@ -16,7 +16,11 @@ export class FestivalService {
     // Festival
   }
 
+  // public save(festival: Festival) {
+  //   return this.httpClient.post<Festival[]>(this.baseUrl+'/update/{id}', festival)
+  // }
+
   public save(festival: Festival) {
-    return this.httpClient.post<Festival[]>(this.baseUrl+'/update/{id}', festival)
+    return this.httpClient.post<Festival[]>(this.baseUrl, festival);
   }
 }

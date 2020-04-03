@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { FestivalsFormComponent } from './festivals-form.component';
@@ -13,7 +14,8 @@ import { FestivalsFormComponent } from './festivals-form.component';
     CommonModule,
     IonicModule,
     RouterModule,
-    RouterModule.forChild([{ path: '', component: FestivalsFormComponent }])
+    RouterModule.forChild([{ path: '', component: FestivalsFormComponent }]),
+    FormsModule
   ],
   exports: [FestivalsFormComponent, RouterModule]
 })

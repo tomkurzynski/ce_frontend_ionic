@@ -22,7 +22,7 @@ export class FestivalsFormComponent {
     this.festivalService.save(this.festival).subscribe(result => this.gotoFestivalList());
   }
   gotoFestivalList() {
-    this.router.navigate(['/tab1'])
+    this.router.navigate(['/tabs/tab1'])
   }
 
 }

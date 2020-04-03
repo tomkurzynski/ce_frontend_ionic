@@ -7,21 +7,50 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Add Event</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-fab vertical="top" horizontal="left" slot="fixed">
+ <div id="container">
+  <ion-fab vertical="top" horizontal="center" slot="fixed">
     <ion-fab-button routerLink="/tabs/tab1" title="Go back">
       <ion-icon name="arrow-back-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+ </div>
+ <form (ngSubmit)="onSubmit()" #festivalForm="ngForm">
+   <ion-list lines="full" class="ion-no-margin ion-no-padding">
+     <ion-item>
+       <ion-label position="floating">Event Name<ion-text color="danger">*</ion-text></ion-label>
+       <ion-input required type="text" [(ngModel)]="festival.name" id="name" name="name" #name="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Event Description</ion-label>
+       <ion-input type="text" [(ngModel)]="festival.eventDesc" id="description" name="description" #description="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label>Start Date<ion-text color="danger">*</ion-text></ion-label>
+       <ion-datetime required value="2020-04-01" placeholder="Select Date" [(ngModel)]="festival.dateFrom" id="dateFrom" name="dateFrom" #dateFrom="ngModel"></ion-datetime>
+     </ion-item>
+     <ion-item>
+       <ion-label>End Date<ion-text color="danger">*</ion-text></ion-label>
+       <ion-datetime required value="2020-04-01" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Facebook Page URL</ion-label>
+       <ion-input type="url" [(ngModel)]="festival.facebook" id="facebook" name="facebook" #facebook="ngModel"></ion-input>
+     </ion-item>
+      <ion-item>
+        <ion-label position="floating">Twitter Page URL</ion-label>
+        <ion-input type="url" [(ngModel)]="festival.twitter" id="twitter" name="twitter" #twitter="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Location<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" required [(ngModel)]="festival.location" id="location" name="location" #location="ngModel"></ion-input>
+      </ion-item>
+   </ion-list>
+   <div class="ion-padding">
+     <ion-button expand="block" type="submit" [disabled]="!festivalForm.form.valid" class="ion-no-margin">Create</ion-button>
+   </div>
+        
+</form>
   
-  <p>
-    festivals-form works!
-  </p>
-  
+
 </ion-content>
 
