@@ -24,6 +24,7 @@ export class FestivalService {
   // }
 
   public save(festival: Festival) {
+    festival.user = 'id":1';
     return this.httpClient.post<Festival[]>(this.baseUrl, festival);
   }
 }

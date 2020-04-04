@@ -11,4 +11,5 @@ export class Festival {
     twitter: string;
     location: string;
     food: Food;
+    user: string;
 }

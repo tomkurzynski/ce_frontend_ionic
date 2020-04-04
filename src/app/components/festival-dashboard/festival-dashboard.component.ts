@@ -28,4 +28,9 @@ export class FestivalDashboardComponent implements OnInit {
     });
   }
 
+  openMenu2(menu) {
+    console.log("ok");
+    menu.openFirst()
+  }
+
 }

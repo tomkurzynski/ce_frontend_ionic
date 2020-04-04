@@ -1,19 +1,21 @@
-<app-dashboard-menu></app-dashboard-menu>
+<app-dashboard-menu #menu></app-dashboard-menu>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       
       {{ festival.name }}
-      <ion-buttons slot="start">
-        <ion-menu-button>ff</ion-menu-button>
-      </ion-buttons>
+      
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button onclick="openMenu()"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   
-  <ion-button expand="block" onclick="openMenu()">Open Menu</ion-button>
+  <ion-button expand="block" (click)="openMenu2(menu)">Open Menu</ion-button>
 
   <ion-fab horizontal="center" vertical="center" slot="fixed">
     <ion-fab-button color="danger">
@@ -40,5 +42,8 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+
+
+  <a href="" routerLink="/tabs/foodvendors">Food Vendors</a>
   
 </ion-content>

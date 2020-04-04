@@ -33,6 +33,10 @@
        <ion-datetime required value="2020-04-01" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime>
      </ion-item>
      <ion-item>
+      <ion-label position="floating">Location<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" required [(ngModel)]="festival.location" id="location" name="location" #location="ngModel"></ion-input>
+    </ion-item>
+     <ion-item>
        <ion-label position="floating">Facebook Page URL</ion-label>
        <ion-input type="url" [(ngModel)]="festival.facebook" id="facebook" name="facebook" #facebook="ngModel"></ion-input>
      </ion-item>
@@ -40,9 +44,14 @@
         <ion-label position="floating">Twitter Page URL</ion-label>
         <ion-input type="url" [(ngModel)]="festival.twitter" id="twitter" name="twitter" #twitter="ngModel"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label position="floating">Location<ion-text color="danger">*</ion-text></ion-label>
-        <ion-input type="text" required [(ngModel)]="festival.location" id="location" name="location" #location="ngModel"></ion-input>
+        <ion-label>Logo</ion-label>
+        <ion-input type="file" [(ngModel)]="festival.logoUrl" id="logoUrl" name="logoUrl" #logoUrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>User Id</ion-label>
+        <ion-input type="text" value="1" [(ngModel)]="festival.user" id="user" name="user" #user="ngModel">1</ion-input>
       </ion-item>
    </ion-list>
    <div class="ion-padding">

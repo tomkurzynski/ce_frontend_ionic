@@ -10,7 +10,8 @@ import { FoodListComponent } from '../food-list/food-list.component';
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule.forChild([( path: '', component: FoodListComponent)])
-  ]
+    RouterModule,
+  ],
+  exports: [FoodListComponent, RouterModule]
 })
 export class FoodListModule { }
