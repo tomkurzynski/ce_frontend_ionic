@@ -26,11 +26,11 @@
      </ion-item>
      <ion-item>
        <ion-label>Start Date<ion-text color="danger">*</ion-text></ion-label>
-       <ion-datetime required value="2020-04-01" placeholder="Select Date" [(ngModel)]="festival.dateFrom" id="dateFrom" name="dateFrom" #dateFrom="ngModel"></ion-datetime>
+       <ion-datetime required min="2020" max="2023-12-31" placeholder="Select Date" [(ngModel)]="festival.dateFrom" id="dateFrom" name="dateFrom" #dateFrom="ngModel"></ion-datetime>
      </ion-item>
      <ion-item>
        <ion-label>End Date<ion-text color="danger">*</ion-text></ion-label>
-       <ion-datetime required value="2020-04-01" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime>
+       <ion-datetime required [min]="2020" max="2023-12-31" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime>
      </ion-item>
      <ion-item>
       <ion-label position="floating">Location<ion-text color="danger">*</ion-text></ion-label>
