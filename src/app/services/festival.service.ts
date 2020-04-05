@@ -27,4 +27,9 @@ export class FestivalService {
     festival.user = 'id":1';
     return this.httpClient.post<Festival[]>(this.baseUrl, festival);
   }
+
+  public saveAsForm(festival: any) {
+    // festival.user = 'id":1';
+    return this.httpClient.post<any>(this.baseUrl, festival);
+  }
 }

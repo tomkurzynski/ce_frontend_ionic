@@ -3,6 +3,7 @@ import { Festival } from 'src/app/common/festival';
 import { FestivalService } from 'src/app/services/festival.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-festival-dashboard',
@@ -16,7 +17,8 @@ export class FestivalDashboardComponent implements OnInit {
 
   constructor(private festivalService: FestivalService, 
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+             ) { }
 
   ngOnInit() {
     this.sub =  this.route.params.subscribe(params => {
@@ -28,9 +30,9 @@ export class FestivalDashboardComponent implements OnInit {
     });
   }
 
-  openMenu2(menu) {
-    console.log("ok");
-    menu.openFirst()
-  }
+  // openMenu2(menu) {
+  //   console.log("ok");
+  //   menu.openFirst()
+  // }
 
 }

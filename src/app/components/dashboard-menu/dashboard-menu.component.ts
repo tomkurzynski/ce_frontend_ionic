@@ -8,6 +8,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class DashboardMenuComponent {
 
+
   constructor(private menu: MenuController) { }
 
   openFirst() {

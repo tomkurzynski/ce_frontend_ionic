@@ -2,7 +2,7 @@
   <ion-grid>
   <ion-row>
     <ion-col size="4" offset-lg offset-md offset-sm *ngFor="let festival of festivals">
-      <a href="" [routerLink]="['/tabs/festivals', festival.id]"> <ion-button color="primary" >{{ festival.name }}</ion-button></a>
+      <a href="" [routerLink]="['festivals/', festival.id]"> <ion-button color="primary" >{{ festival.name }}</ion-button></a>
     </ion-col>
   </ion-row>
 </ion-grid>

@@ -47,7 +47,9 @@
 
       <ion-item>
         <ion-label>Logo</ion-label>
-        <ion-input type="file" [(ngModel)]="festival.logoUrl" id="logoUrl" name="logoUrl" #logoUrl="ngModel"></ion-input>
+        <!-- <ion-input type="file" [(ngModel)]="festival.logoUrl" id="logoUrl" name="logoUrl" #logoUrl="ngModel"></ion-input> -->
+        <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+        <!-- (change)="onFileSelected($event)" -->
       </ion-item>
       <ion-item>
         <ion-label>User Id</ion-label>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ festival.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <div class="container">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2">Event Details</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Start Date:</td>
+      <td>{{ festival.dateFrom }} </td>
+    </tr>
+    <tr>
+      <td>End Date:</td>
+      <td>{{ festival.dateTo }} </td>
+    </tr>
+    <tr>
+      <td>Location:</td>
+      <td>{{ festival.location }} </td>
+    </tr>
+    <tr>
+      <td>Facebook URL:</td>
+      <td>{{ festival.facebook }} </td>
+    </tr>
+    <tr>
+      <td>Twitter URL:</td>
+      <td>{{ festival.twitter }} </td>
+    </tr>
+    <tr>
+      <td colspan="2"><ion-icon name="create-outline"></ion-icon>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+  <p><img [src]="sanitizeIframeSrc()" alt="Red dot" /> </p>
+  <!-- <p><img [src]="'data:image/png;base64, '+ festival.logoUrl" alt="Red dot" /> </p> -->
+  
+
+</ion-content>

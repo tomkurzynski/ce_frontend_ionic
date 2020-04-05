@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { TabsPageRoutingModule } from './tabs-routing.module';
-import { FestivalsFormModule } from '../components/festivals-form/festivals-form.module';
+import { FestivalsFormModule } from '../../components/festivals-form/festivals-form.module';
 
 import { TabsPage } from './tabs.page';
 

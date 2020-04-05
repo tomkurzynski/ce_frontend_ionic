@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Festival } from '../common/festival';
-import { FestivalService } from '../services/festival.service';
 
 @Component({
   selector: 'app-tab1',
