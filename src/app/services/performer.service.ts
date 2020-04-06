@@ -25,4 +25,14 @@ export class PerformerService {
   savePeformer(performer: Performers) {
     this.httpClient.post<Performers>(this.baseUrl, performer);
   }
+
+  //update
+  updatePerformer(performer: Performers) {
+    this.httpClient.put<Performers>(this.baseUrl, performer);
+  }
+
+  //delete
+  deletePerformer(id: string) {
+    this.httpClient.delete<Performers>(this.baseUrl + '/' + id);
+  }
 }

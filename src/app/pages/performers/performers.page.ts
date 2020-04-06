@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Performers } from 'src/app/common/performers';
+import { PerformerService } from 'src/app/services/performer.service';
 
 @Component({
   selector: 'app-performers',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerformersPage implements OnInit {
 
-  constructor() { }
+  performers: Performers[];
+  
+  constructor(private performerService: PerformerService) { }
 
   ngOnInit() {
+    this.performerService.getPerformersList().subscribe(data => {
+      this.performers = data;
+    });
   }
 
 }

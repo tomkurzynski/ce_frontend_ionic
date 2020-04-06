@@ -5,7 +5,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
-  },  
+  },   {
+    path: 'news',
+    loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
+  },
+ 
   // {
   //   path: '',
   //   loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)

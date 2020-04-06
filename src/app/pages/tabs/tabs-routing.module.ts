@@ -49,8 +49,46 @@ const routes: Routes = [
              
           }
         ]
-      },   
+      },  
+      { path: 'tab1/festivals/:id/performers', 
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+
+              // import('../menu/menu.module').then(m => m.MenuPageModule)
+              import('../../pages/performers/performers.module').then(m => m.PerformersPageModule)
              
+          }
+        ]
+      }, 
+      { 
+        path: 'tab1/festivals/:id/foodvendors', 
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+
+              // import('../menu/menu.module').then(m => m.MenuPageModule)
+              import('../../pages/foodvendors/foodvendors.module').then(m => m.FoodvendorsPageModule)
+             
+          }
+        ]
+      }, 
+      { 
+        path: 'tab1/festivals/:id/news', 
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+
+              // import('../menu/menu.module').then(m => m.MenuPageModule)
+              import('../../pages/news/news.module').then(m => m.NewsPageModule)
+            
+          }
+      ]
+    }, 
+            
       {
         path: '',
         redirectTo: '/tabs/tab1',
