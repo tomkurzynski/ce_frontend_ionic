@@ -7,7 +7,10 @@ import { Performers } from '../common/performers';
 })
 export class PerformerService {
 
-  private baseUrl = 'http://localhost:9090/foods';
+  private baseUrl = 'http://localhost:9090/api/performers';
+
+// KURŁA PACZ ANDRZEJ NA TO
+  // private baseUrl = 'http://localhost:9090/performers';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,7 +26,7 @@ export class PerformerService {
 
   //save
   savePeformer(performer: Performers) {
-    this.httpClient.post<Performers>(this.baseUrl, performer);
+    this.httpClient.post<Performers[]>(this.baseUrl, performer);
   }
 
   //update
@@ -35,4 +38,5 @@ export class PerformerService {
   deletePerformer(id: string) {
     this.httpClient.delete<Performers>(this.baseUrl + '/' + id);
   }
+  
 }

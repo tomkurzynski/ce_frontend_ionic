@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'news',
     loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
   },
+  {
+    path: 'user-edit',
+    loadChildren: () => import('./pages/user-edit/user-edit.module').then( m => m.UserEditPageModule)
+  },
  
   // {
   //   path: '',
