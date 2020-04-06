@@ -10,7 +10,7 @@
   <br>
   <div class="container">
     <table class="table table-bordered table-striped">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th colspan="2">
             User Details
@@ -31,7 +31,11 @@
           <td>{{ user.email }}</td>
         </tr>
         <tr>
-          <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger">Change Password</ion-button></td>
+          <td colspan="2">
+            <ion-button>Change Details</ion-button>
+            <ion-button>Change Password</ion-button>
+            <ion-button color="danger">Delete Account</ion-button>
+          </td>
           
         </tr>
       </tbody>
