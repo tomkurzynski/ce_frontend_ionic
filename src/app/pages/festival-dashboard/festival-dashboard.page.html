@@ -24,6 +24,9 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td colspan="2"><img [src]="sanitizeIframeSrc()" alt="Festival Logo" /> </td>
+      </tr>
     <tr>
       <td>Start Date:</td>
       <td>{{ festival.dateFrom }} </td>
@@ -45,14 +48,10 @@
       <td>{{ festival.twitter }} </td>
     </tr>
     <tr>
-      <td colspan="2"><ion-icon name="create-outline"></ion-icon>
+      <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger">Delete Event</ion-button>
       </td>
     </tr>
   </tbody>
   </table>
 </div>
-  <p><img [src]="sanitizeIframeSrc()" alt="Red dot" /> </p>
-  <!-- <p><img [src]="'data:image/png;base64, '+ festival.logoUrl" alt="Red dot" /> </p> -->
-  
-
 </ion-content>

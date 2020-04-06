@@ -24,4 +24,15 @@ export class FoodService {
   saveFoodVendor(foodVendor: Food) {
     this.httpClient.post<Food>(this.baseUrl, foodVendor);
   }
+
+  //update
+  updateFoodVendow(foodVendor: Food) {
+    this.httpClient.put<Food>(this.baseUrl, foodVendor);
+  }
+
+  //delete
+
+  deleteById(id: string) {
+    this.httpClient.delete<Food>(this.baseUrl + '/delete/' + id);
+  }
 }

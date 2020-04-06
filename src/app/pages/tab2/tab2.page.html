@@ -1,17 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      User
+      User Panel
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <br>
+  <div class="container">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th colspan="2">
+            User Details
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First Name:</td>
+          <td>{{ user.firstName }}</td>
+        </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td>{{ user.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Email Address:</td>
+          <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger">Change Password</ion-button></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ion-content>
