@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ foodvendor.foodName }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  
+  <div class="container">
+    
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2">Food Vendor Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2"><img [src]="sanitizeIframeSrc()" alt="Food Vendor Photo" /> </td>
+      </tr>
+    <tr>
+      <td>Type of Food Served / Description:</td>
+      <td>{{ foodvendor.foodType }} </td>
+    </tr>
+    <tr>
+      <td>Facebook URL:</td>
+      <td>{{ foodvendor.facebook }} </td>
+    </tr>
+    <tr>
+      <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger">Delete Food Vendor</ion-button>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+</ion-content>

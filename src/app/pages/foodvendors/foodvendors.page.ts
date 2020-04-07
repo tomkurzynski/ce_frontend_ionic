@@ -19,4 +19,8 @@ export class FoodvendorsPage implements OnInit {
     });
   }
 
+  onClickFunction(id: string) {
+    this.foodService.deleteById(id);
+  }
+
 }

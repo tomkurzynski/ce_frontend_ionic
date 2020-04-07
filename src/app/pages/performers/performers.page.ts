@@ -19,4 +19,7 @@ export class PerformersPage implements OnInit {
     });
   }
 
+  onClickFunction(id: string) {
+    this.performerService.deletePerformer(id);
+  }
 }

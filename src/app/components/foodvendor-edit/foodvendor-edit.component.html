@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Edit Food Vendor: {{ foodvendor.foodName }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+ <br>
+ <br>
+  <!-- <form (ngSubmit)="save(performerForm.value)" #performerForm="ngForm"> -->
+   <form (ngSubmit)="update()" #foodvendorForm="ngForm">
+   <ion-list lines="full" class="ion-no-margin ion-no-padding">
+     <ion-item>
+        <ion-input type="hidden" name="href" [(ngModel)]="foodvendor.href"></ion-input>
+       <ion-label position="floating">Performer Name<ion-text color="danger">*</ion-text></ion-label>
+       <ion-input required type="text" [(ngModel)]="foodvendor.foodName" id="foodName" name="foodName" #foodName="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Type of Food Served / Description</ion-label>
+       <ion-input type="text" [(ngModel)]="foodvendor.foodType" id="foodType" name="foodType" #foodType="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Facebook Page URL</ion-label>
+       <ion-input type="url" [(ngModel)]="foodvendor.facebook" id="facebook" name="facebook" #facebook="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+        <ion-label>Logo</ion-label>
+        <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+      </ion-item>
+   </ion-list>
+   <div class="ion-padding">
+     <ion-button expand="block" type="submit" [disabled]="!foodvendorForm.form.valid" class="ion-no-margin">Save</ion-button>
+     <a mat-button routerLink="/tabs">Cancel</a>
+   </div>
+        
+</form>
+</ion-content>

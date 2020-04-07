@@ -3,18 +3,19 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { PerformerEditComponent } from './performer-edit.component';
+import { FoodvendorEditComponent } from './foodvendor-edit.component';
+
 
 
 
 @NgModule({
-  declarations: [PerformerEditComponent],
+  declarations: [FoodvendorEditComponent],
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule.forChild([{ path: '', component: PerformerEditComponent }]),
+    RouterModule.forChild([{ path: '', component: FoodvendorEditComponent }]),
     FormsModule
   ],
-  exports: [PerformerEditComponent, RouterModule]
+  exports: [FoodvendorEditComponent, RouterModule]
 })
-export class PerformerEditModule { }
+export class FoodvendorEditModule { }

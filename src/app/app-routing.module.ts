@@ -32,6 +32,18 @@ const routes: Routes = [
   {
     path: 'updateperformer/:id',
     loadChildren: () => import('./components/performer-edit/performer-edit.module').then(m => m.PerformerEditModule)
+  },
+  {
+    path: 'foodvendor-view',
+    loadChildren: () => import('./pages/foodvendor-view/foodvendor-view.module').then( m => m.FoodvendorViewPageModule)
+  },
+  {
+    path: 'foodvendor/:id',
+    loadChildren: () => import('./pages/foodvendor-view/foodvendor-view.module').then(m => m.FoodvendorViewPageModule)
+  },
+  {
+    path: 'updatefoodvendor/:id',
+    loadChildren: () => import('./components/foodvendor-edit/foodvendor-edit.module').then(m => m.FoodvendorEditModule)
   }
   
  

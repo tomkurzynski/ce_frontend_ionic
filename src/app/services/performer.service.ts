@@ -36,7 +36,7 @@ export class PerformerService {
 
   //delete
   deletePerformer(id: string) {
-    this.httpClient.delete<Performers>(this.baseUrl + '/' + id);
+    this.httpClient.delete<Performers>(this.baseUrl + '/delete/' + id);
   }
   
   public saveAsForm(performer: any) {
