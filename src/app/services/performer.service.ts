@@ -39,4 +39,8 @@ export class PerformerService {
     this.httpClient.delete<Performers>(this.baseUrl + '/' + id);
   }
   
+  public saveAsForm(performer: any) {
+    // festival.user = 'id":1';
+    return this.httpClient.post<any>(this.baseUrl, performer);
+  }
 }

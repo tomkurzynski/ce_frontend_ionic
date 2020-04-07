@@ -35,4 +35,9 @@ export class FoodService {
   deleteById(id: string) {
     this.httpClient.delete<Food>(this.baseUrl + '/delete/' + id);
   }
+
+  public saveAsForm(food: any) {
+    // festival.user = 'id":1';
+    return this.httpClient.post<any>(this.baseUrl, food);
+  }
 }

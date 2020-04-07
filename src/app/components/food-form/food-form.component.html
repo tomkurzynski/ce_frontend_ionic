@@ -1,3 +1,46 @@
-<p>
-  food-form works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add Food Vendor
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <ion-fab vertical="top" horizontal="center" slot="fixed">
+    <ion-fab-button routerLink="/tabs/tab1" title="Go back">
+      <ion-icon name="arrow-back-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
+ <br>
+ <br>
+ <div class="container">
+ <form (ngSubmit)="onSubmit()" #foodForm="ngForm">
+   <ion-list lines="full" class="ion-no-margin ion-no-padding">
+     <ion-item>
+       <ion-label position="floating">Food Vendor Name<ion-text color="danger">*</ion-text></ion-label>
+       <ion-input required type="text" [(ngModel)]="food.foodName" id="foodName" name="foodName" #foodName="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Type of Food Served</ion-label>
+       <ion-input type="text" [(ngModel)]="food.foodType" id="foodType" name="foodType" #foodType="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Facebook Page URL</ion-label>
+       <ion-input type="url" [(ngModel)]="food.facebook" id="facebook" name="facebook" #facebook="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+        <ion-label>Logo</ion-label>
+        <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+      </ion-item>
+   </ion-list>
+   <div class="ion-padding">
+     <ion-button expand="block" type="submit" [disabled]="!foodForm.form.valid" class="ion-no-margin">Create</ion-button>
+   </div>
+        
+</form>
+</div>
+
+</ion-content>

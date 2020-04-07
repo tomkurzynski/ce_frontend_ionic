@@ -9,5 +9,6 @@ export class Performers {
 	facebook: string;
 	twitter: string;
 	spotify: string;
+	photo: string;
 	festival: Festival;
 }

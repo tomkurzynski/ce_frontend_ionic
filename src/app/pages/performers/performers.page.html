@@ -14,14 +14,14 @@
     </ion-fab-button>
   </ion-fab>
   <ion-fab vertical="top" horizontal="center" slot="fixed">
-    <ion-fab-button routerLink="tab1/festivals/:id" title="Go back">
+    <ion-fab-button routerLink="/addperformer" title="Go back">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   <br><br><br>
 
      
-      
+  <div class="container">
       <ion-list>
         <ion-item *ngFor="let performer of performers">
          <ion-label>{{ performer.name }}</ion-label>
@@ -30,6 +30,7 @@
                 <ion-button color="danger">Delete</ion-button>
         </ion-item>
       </ion-list>
+      </div>
 
 
 </ion-content>
