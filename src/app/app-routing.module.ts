@@ -25,6 +25,15 @@ const routes: Routes = [
     path: 'addperformer',
     loadChildren: () => import('./components/performer-form/performer-form.module').then( m => m.PerformerFormModule)
   },
+  {
+    path: 'performer/:id',
+    loadChildren: () => import('./pages/performer-view/performer-view.module').then(m => m.PerformerViewPageModule)
+  },
+  {
+    path: 'updateperformer/:id',
+    loadChildren: () => import('./components/performer-edit/performer-edit.module').then(m => m.PerformerEditModule)
+  }
+  
  
   // {
   //   path: '',

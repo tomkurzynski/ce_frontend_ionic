@@ -8,6 +8,7 @@ import { FestivalsFormModule } from '../../components/festivals-form/festivals-f
 
 import { TabsPage } from './tabs.page';
 
+
 @NgModule({
   imports: [
     IonicModule,

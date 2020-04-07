@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{ performer.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  
+  <div class="container">
+    
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2">Performer Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2"><img [src]="sanitizeIframeSrc()" alt="Performer Photo" /> </td>
+      </tr>
+    <tr>
+      <td>About Performer</td>
+      <td>{{ performer.description }} </td>
+    </tr>
+    <tr>
+      <td>Website URL:</td>
+      <td>{{ performer.webUrl }} </td>
+    </tr>
+    <tr>
+      <td>Facebook URL:</td>
+      <td>{{ performer.facebook }} </td>
+    </tr>
+    <tr>
+      <td>Twitter URL:</td>
+      <td>{{ performer.twitter }} </td>
+    </tr>
+    <tr>
+      <td>YouTube Channel:</td>
+      <td>{{ performer.youtube }} </td>
+    </tr>
+    <tr>
+      <td>Spotify Profile:</td>
+      <td>{{ performer.spotify }} </td>
+    </tr>
+    <tr>
+      <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger">Delete Performer</ion-button>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+</ion-content>

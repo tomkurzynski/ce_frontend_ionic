@@ -25,8 +25,8 @@
       <ion-list>
         <ion-item *ngFor="let performer of performers">
          <ion-label>{{ performer.name }}</ion-label>
-                <ion-button >View</ion-button>
-                <ion-button>Edit</ion-button>
+                <ion-button [routerLink]="['/performer/', performer.id]">View</ion-button>
+                <ion-button [routerLink]="['/updateperformer/', performer.id]">Edit</ion-button>
                 <ion-button color="danger">Delete</ion-button>
         </ion-item>
       </ion-list>

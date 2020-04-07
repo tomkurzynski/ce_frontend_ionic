@@ -26,7 +26,7 @@ export class PerformerService {
 
   //save
   savePeformer(performer: Performers) {
-    this.httpClient.post<Performers[]>(this.baseUrl, performer);
+    return this.httpClient.post<Performers[]>(this.baseUrl, performer);
   }
 
   //update

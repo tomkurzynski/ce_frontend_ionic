@@ -29,7 +29,8 @@ const routes: Routes = [
           }
         ]
       },
-      { path: 'festivals', 
+      {
+        path: 'festivals',
         children: [
           {
             path: '',
@@ -38,7 +39,8 @@ const routes: Routes = [
           }
         ]
       },
-      { path: 'tab1/festivals/:id', 
+      {
+        path: 'tab1/festivals/:id',
         children: [
           {
             path: '',
@@ -46,11 +48,12 @@ const routes: Routes = [
 
               // import('../menu/menu.module').then(m => m.MenuPageModule)
               import('../festival-dashboard/festival-dashboard.module').then(m => m.FestivalDashboardPageModule)
-             
+
           }
         ]
-      },  
-      { path: 'tab1/festivals/:id/performers', 
+      },
+      {
+        path: 'tab1/festivals/:id/performers',
         children: [
           {
             path: '',
@@ -58,12 +61,12 @@ const routes: Routes = [
 
               // import('../menu/menu.module').then(m => m.MenuPageModule)
               import('../../pages/performers/performers.module').then(m => m.PerformersPageModule)
-             
+
           }
         ]
-      }, 
-      { 
-        path: 'tab1/festivals/:id/foodvendors', 
+      },
+      {
+        path: 'tab1/festivals/:id/foodvendors',
         children: [
           {
             path: '',
@@ -71,12 +74,12 @@ const routes: Routes = [
 
               // import('../menu/menu.module').then(m => m.MenuPageModule)
               import('../../pages/foodvendors/foodvendors.module').then(m => m.FoodvendorsPageModule)
-             
+
           }
         ]
-      }, 
-      { 
-        path: 'tab1/festivals/:id/news', 
+      },
+      {
+        path: 'tab1/festivals/:id/news',
         children: [
           {
             path: '',
@@ -84,11 +87,12 @@ const routes: Routes = [
 
               // import('../menu/menu.module').then(m => m.MenuPageModule)
               import('../../pages/news/news.module').then(m => m.NewsPageModule)
-            
+
           }
-      ]
-    }, 
-            
+        ]
+      },
+      
+
       {
         path: '',
         redirectTo: '/tabs/tab1',
@@ -107,4 +111,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

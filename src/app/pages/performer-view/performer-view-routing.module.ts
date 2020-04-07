@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FestivalDashboardPage } from './festival-dashboard.page';
+import { PerformerViewPage } from './performer-view.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: FestivalDashboardPage    
+    component: PerformerViewPage
+  },
+  {
+    path: '/performer/:id',
+    component: PerformerViewPage
   }
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FestivalDashboardPageRoutingModule { }
+export class PerformerViewPageRoutingModule {}
