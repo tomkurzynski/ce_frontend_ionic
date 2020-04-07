@@ -30,7 +30,7 @@ export class FoodFormComponent{
     let dto = JSON.parse(JSON.stringify(this.food));
 
     //TO BE VERIFIED
-    dto.event = {id: "1"};
+    dto.festival = {id: "1"};
     fd.append('food', JSON.stringify(dto));
 
     //TO BE VERIFIED END

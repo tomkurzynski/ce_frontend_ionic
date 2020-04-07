@@ -12,8 +12,8 @@ import { PerformerEditComponent } from './performer-edit.component';
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule,
-    FormsModule
+    RouterModule.forChild([{ path: '', component: PerformerEditComponent}]),
+   FormsModule
   ],
   exports: [PerformerEditComponent, RouterModule]
 })

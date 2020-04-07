@@ -49,4 +49,12 @@ export class PerformerViewPage implements OnInit {
     return sanitizedUrl;
   }
 
+  getFestivalId() {
+
+    try {
+      return this.performer.festival.id;
+    } catch (e) {}
+    
+  }
+
 }

@@ -26,6 +26,7 @@ export class PerformerFormComponent {
 
     //TO BE CHANGED
     dto.festival = {id: "1"};
+   // dto.photo = null;
     fd.append('performer', JSON.stringify(dto));
     //TO BE CHANGED END
 

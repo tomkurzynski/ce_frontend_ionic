@@ -44,7 +44,7 @@ export class PerformerEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/tabs']);
   }
 
-  save(form: NgForm) {
+  save() {
     this.performerService.savePeformer(this.performer).subscribe(result => {
       this.gotoPerformerList();
     }, error => console.error(error));
