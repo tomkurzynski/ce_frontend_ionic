@@ -44,10 +44,26 @@ export class PerformerEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/tabs']);
   }
 
-  save() {
-    this.performerService.savePeformer(this.performer).subscribe(result => {
-      this.gotoPerformerList();
-    }, error => console.error(error));
+  // save() {
+  //   this.performerService.savePeformer(this.performer).subscribe(result => {
+  //     this.gotoPerformerList();
+  //   }, error => console.error(error));
+  // }
+
+  update() {
+    const fd = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+
+    let dto = JSON.parse(JSON.stringify(this.performer));
+
+    //TO BE VERIFIED
+    dto.festival = {id: "1"};
+    fd.append('performer', JSON.stringify(dto));
+
+    //TO BE VERIFIED END
+
+    this.performerService.saveAsForm(fd).subscribe(result => this.gotoPerformerList());
+
   }
 
   remove(href) {

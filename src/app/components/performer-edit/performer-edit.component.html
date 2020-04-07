@@ -10,11 +10,11 @@
  
  <br>
  <br>
- <!-- <form (ngSubmit)="save(performerForm.value)" #performerForm="ngForm"> -->
-  <!-- <form (ngSubmit)="save()">
+  <!-- <form (ngSubmit)="save(performerForm.value)" #performerForm="ngForm"> -->
+   <form (ngSubmit)="update()" #performerForm="ngForm">
    <ion-list lines="full" class="ion-no-margin ion-no-padding">
      <ion-item>
-        <input type="hidden" name="href" [(ngModel)]="performer.href">
+        <ion-input type="hidden" name="href" [(ngModel)]="performer.href"></ion-input>
        <ion-label position="floating">Performer Name<ion-text color="danger">*</ion-text></ion-label>
        <ion-input required type="text" [(ngModel)]="performer.name" id="name" name="name" #name="ngModel"></ion-input>
      </ion-item>
@@ -52,7 +52,5 @@
      <a mat-button routerLink="/tabs">Cancel</a>
    </div>
         
-</form> -->
-  
-
+</form>
 </ion-content>

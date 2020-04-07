@@ -7,55 +7,63 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- 
+
   <ion-fab vertical="top" horizontal="center" slot="fixed">
     <ion-fab-button routerLink="/tabs/tab1" title="Go back">
       <ion-icon name="arrow-back-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
- 
- <br>
- <br>
- <form (ngSubmit)="onSubmit()" #performerForm="ngForm">
-   <ion-list lines="full" class="ion-no-margin ion-no-padding">
-     <ion-item>
-       <ion-label position="floating">Performer Name<ion-text color="danger">*</ion-text></ion-label>
-       <ion-input required type="text" [(ngModel)]="performer.name" id="name" name="name" #name="ngModel"></ion-input>
-     </ion-item>
-     <ion-item>
-       <ion-label position="floating">About Performer</ion-label>
-       <ion-input type="text" [(ngModel)]="performer.description" id="description" name="description" #description="ngModel"></ion-input>
-     </ion-item>
-     <ion-item>
-      <ion-label position="floating">Website URL</ion-label>
-      <ion-input type="url" [(ngModel)]="performer.webUrl" id="webUrl" name="webUrl" #webUrl="ngModel"></ion-input>
-    </ion-item>
-     <ion-item>
-       <ion-label position="floating">Facebook Page URL</ion-label>
-       <ion-input type="url" [(ngModel)]="performer.facebook" id="facebook" name="facebook" #facebook="ngModel"></ion-input>
-     </ion-item>
-     <ion-item>
-      <ion-label position="floating">Twitter Page URL</ion-label>
-      <ion-input type="url" [(ngModel)]="performer.twitter" id="twitter" name="twitter" #twitter="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">YouTube Page URL</ion-label>
-      <ion-input type="url" [(ngModel)]="performer.youtube" id="youtube" name="youtube" #youtube="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Spotify Profile URL</ion-label>
-      <ion-input type="url" [(ngModel)]="performer.spotify" id="spotify" name="spotify" #spotify="ngModel"></ion-input>
-    </ion-item>
-     <ion-item>
-        <ion-label>Performer Picture</ion-label>
-        <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
-      </ion-item>
-   </ion-list>
-   <div class="ion-padding">
-     <ion-button expand="block" type="submit" [disabled]="!performerForm.form.valid" class="ion-no-margin">Create</ion-button>
-   </div>
-        
-</form>
-  
 
+  <br>
+  <br>
+
+  <div class="container">
+    <form (ngSubmit)="onSubmit()" #performerForm="ngForm">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="floating">Performer Name<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="performer.name" id="name" name="name" #name="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">About Performer</ion-label>
+          <ion-input type="text" [(ngModel)]="performer.description" id="description" name="description"
+            #description="ngModel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Website URL</ion-label>
+          <ion-input type="url" [(ngModel)]="performer.webUrl" id="webUrl" name="webUrl" #webUrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Facebook Page URL</ion-label>
+          <ion-input type="url" [(ngModel)]="performer.facebook" id="facebook" name="facebook" #facebook="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Twitter Page URL</ion-label>
+          <ion-input type="url" [(ngModel)]="performer.twitter" id="twitter" name="twitter" #twitter="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">YouTube Page URL</ion-label>
+          <ion-input type="url" [(ngModel)]="performer.youtube" id="youtube" name="youtube" #youtube="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Spotify Profile URL</ion-label>
+          <ion-input type="url" [(ngModel)]="performer.spotify" id="spotify" name="spotify" #spotify="ngModel">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Performer Picture</ion-label>
+          <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" [disabled]="!performerForm.form.valid" class="ion-no-margin">Create
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
