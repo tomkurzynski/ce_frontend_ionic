@@ -35,6 +35,13 @@ export class FestivalDashboardPage implements OnInit {
     });
   }
 
+  onClickFunction(id: string) {
+    this.festivalService.deleteFestival(id).subscribe(result => this.gotoFestivalList());
+  }
+  gotoFestivalList() {
+    this.router.navigate(['/tabs/tab1']);
+  }
+
   sanitizeIframeSrc() {
     // <!-- <p><img [src]="'data:image/png;base64, '+ festival.logoUrl" alt="Red dot" /> </p> -->
     let sanitizedUrl;

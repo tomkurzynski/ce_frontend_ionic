@@ -32,4 +32,8 @@ export class FestivalService {
     // festival.user = 'id":1';
     return this.httpClient.post<any>(this.baseUrl, festival);
   }
+
+  public deleteFestival(id: string) {
+    return this.httpClient.delete<Festival>(this.baseUrl + '/' + id);
+  }
 }
