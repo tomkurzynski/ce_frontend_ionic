@@ -44,6 +44,18 @@ const routes: Routes = [
   {
     path: 'updatefoodvendor/:id',
     loadChildren: () => import('./components/foodvendor-edit/foodvendor-edit.module').then(m => m.FoodvendorEditModule)
+  },
+  {
+    path: 'newsitem/:id',
+    loadChildren: () => import('./pages/news-view/news-view.module').then( m => m.NewsViewPageModule)
+  },
+  {
+    path: 'addnews',
+    loadChildren: () => import('./components/news-form/news-form.module').then(m => m.NewsFormModule)
+  },
+  {
+    path: 'updatenews/:id',
+    loadChildren: () => import('./components/news-edit/news-edit.module').then(m => m.NewsEditModule)
   }
   
  

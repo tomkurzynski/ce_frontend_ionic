@@ -33,7 +33,7 @@ export class FoodService {
   //delete
 
   deleteById(id: string) {
-    this.httpClient.delete<Food>(this.baseUrl + '/delete/' + id);
+    return this.httpClient.delete<Food>(this.baseUrl + '/' + id);
   }
 
   public saveAsForm(food: any) {

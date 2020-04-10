@@ -4,18 +4,20 @@ import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-import { FestivalsFormComponent } from './festivals-form.component';
 
-
+import { NewsFormComponent } from './news-form.component';
 
 @NgModule({
-  declarations: [FestivalsFormComponent],
+  declarations: [NewsFormComponent],
   imports: [
     CommonModule,
-    IonicModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: FestivalsFormComponent }])
+    IonicModule,
+    RouterModule.forChild([{ path: '', component: NewsFormComponent }])
   ],
-  exports: [FestivalsFormComponent, RouterModule]
+  exports: [
+    NewsFormComponent, 
+    RouterModule
+  ]
 })
-export class FestivalsFormModule { }
+export class NewsFormModule { }

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add News Item
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <ion-fab vertical="top" horizontal="center" slot="fixed">
+    <ion-fab-button routerLink="/tabs/tab1" title="Go back">
+      <ion-icon name="arrow-back-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
+ <br>
+ <br>
+ <div class="container">
+ <form (ngSubmit)="onSubmit()" #newsForm="ngForm">
+   <ion-list lines="full" class="ion-no-margin ion-no-padding">
+     <ion-item>
+       <ion-label position="floating">Title<ion-text color="danger">*</ion-text></ion-label>
+       <ion-input required type="text" [(ngModel)]="newsItem.title" id="title" name="title" #title="ngModel"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">News Body</ion-label>
+       <ion-input type="text" [(ngModel)]="newsItem.newsBody" id="newsBody" name="newsBody" #newsBody="ngModel"></ion-input>
+     </ion-item>
+   </ion-list>
+   <div class="ion-padding">
+     <ion-button expand="block" type="submit" [disabled]="!newsForm.form.valid" class="ion-no-margin">Create</ion-button>
+   </div>
+        
+</form>
+</div>
+
+</ion-content>

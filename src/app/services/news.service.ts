@@ -23,16 +23,20 @@ export class NewsService {
 
   //add
   addNewsItem(newsItem: News) {
-    this.httpClient.post<News>(this.baseUrl, newsItem);
+    return this.httpClient.post<News>(this.baseUrl, newsItem);
   }
 
   //update
   updateNewsItem(newsItem: News) {
-    this.httpClient.put<News>(this.baseUrl, newsItem);
+    return this.httpClient.put<News>(this.baseUrl + '/' + newsItem.id, newsItem);
   }
 
   //delete
   deleteNewsItem(id: string) {
-    this.httpClient.delete<News>(this.baseUrl + '/' + id);
+    return this.httpClient.delete<News>(this.baseUrl + '/' + id);
+  }
+
+  public saveAsForm(newsItem: any) {
+    return this.httpClient.post<any>(this.baseUrl, newsItem);
   }
 }

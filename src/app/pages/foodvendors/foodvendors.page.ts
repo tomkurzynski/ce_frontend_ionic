@@ -14,13 +14,17 @@ export class FoodvendorsPage implements OnInit {
   constructor(private foodService: FoodService) { }
 
   ngOnInit() {
-    this.foodService.getFoodVendorList().subscribe(data => {
-      this.foodVendors = data;
-    });
+    this.refreshList();
   }
 
   onClickFunction(id: string) {
-    this.foodService.deleteById(id);
+    this.foodService.deleteById(id).subscribe(() => this.refreshList());
+  }
+
+  refreshList() {
+    this.foodService.getFoodVendorList().subscribe(data => {
+      this.foodVendors = data;
+    });
   }
 
 }

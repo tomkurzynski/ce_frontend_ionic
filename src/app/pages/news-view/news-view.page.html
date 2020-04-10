@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ newsItem.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  
+  <div class="container">
+    
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2">Title: {{ newsItem.title }}</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>News Body:</td>
+      <td>{{ newsItem.newsBody }}</td>
+    </tr>
+    <tr>
+      <td>Date Created:</td>
+      <td>{{ newsItem.dateCreated }} </td>
+    </tr>
+    <tr>
+      <td>Last Updated:</td>
+      <td>{{ newsItem.lastUpdated }} </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <ion-button>Edit News Item</ion-button><ion-button color="danger">Delete</ion-button>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+</ion-content>

@@ -14,9 +14,17 @@ export class NewsPage implements OnInit {
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
+    this.refreshList();
+  }
+
+  onClickFunction(id: string) {
+    this.newsService.deleteNewsItem(id).subscribe(() => { this.refreshList(); });
+  }
+
+  refreshList() {
     this.newsService.getNewsList().subscribe(data => {
       this.news = data;
-    })
+    });
   }
 
 }

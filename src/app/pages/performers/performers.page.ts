@@ -10,16 +10,20 @@ import { PerformerService } from 'src/app/services/performer.service';
 export class PerformersPage implements OnInit {
 
   performers: Performers[];
-  
+
   constructor(private performerService: PerformerService) { }
 
   ngOnInit() {
-    this.performerService.getPerformersList().subscribe(data => {
-      this.performers = data;
-    });
+    this.refreshList();
   }
 
   onClickFunction(id: string) {
-    this.performerService.deletePerformer(id);
+    this.performerService.deletePerformer(id).subscribe(() => { this.refreshList(); });
+  }
+
+  refreshList() {
+    this.performerService.getPerformersList().subscribe(data => {
+      this.performers = data;
+    });
   }
 }

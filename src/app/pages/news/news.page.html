@@ -1,15 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>news</ion-title>
+    <ion-title>News</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="center" slot="fixed">
+  <ion-fab vertical="top" horizontal="left" slot="fixed">
     <ion-fab-button routerLink="tab1/festivals/:id" title="Go back">
       <ion-icon name="arrow-back-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <p>News Test</p>
+  <ion-fab vertical="top" horizontal="center" slot="fixed">
+    <ion-fab-button routerLink="/addnews" title="Add News Item">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <br><br><br>
+
+
+  <div class="container">
+    <ion-list>
+      <ion-item *ngFor="let newsItem of news">
+        <ion-label>{{ newsItem.title }}<h5>Last updated: {{ newsItem.lastUpdated }}</h5><h6>Created: {{ newsItem.dateCreated }}</h6></ion-label>
+        
+        <ion-button [routerLink]="['/newsitem/', newsItem.id]">View</ion-button>
+        <ion-button [routerLink]="['/updatenews/', newsItem.id]">Edit</ion-button>
+        <ion-button color="danger" (click)='onClickFunction(newsItem.id)'
+          onclick="if (!(confirm('Are you sure you want to delete this food vendor?'))) return false">Delete</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 
 </ion-content>

@@ -9,9 +9,6 @@ export class PerformerService {
 
   private baseUrl = 'http://localhost:9090/api/performers';
 
-// KURŁA PACZ ANDRZEJ NA TO
-  // private baseUrl = 'http://localhost:9090/performers';
-
   constructor(private httpClient: HttpClient) { }
 
   //get all
@@ -36,7 +33,7 @@ export class PerformerService {
 
   //delete
   deletePerformer(id: string) {
-    this.httpClient.delete<Performers>(this.baseUrl + '/delete/' + id);
+    return this.httpClient.delete<Performers>(this.baseUrl + '/' + id);
   }
   
   public saveAsForm(performer: any) {
