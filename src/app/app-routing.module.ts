@@ -56,6 +56,10 @@ const routes: Routes = [
   {
     path: 'updatenews/:id',
     loadChildren: () => import('./components/news-edit/news-edit.module').then(m => m.NewsEditModule)
+  },
+  {
+    path: 'room',
+    loadChildren: () => import('./pages/room/room.module').then( m => m.RoomPageModule)
   }
   
  
