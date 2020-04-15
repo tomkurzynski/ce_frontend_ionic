@@ -21,7 +21,12 @@ export class PerformerFormComponent {
 
   onSubmit() {
     const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
+    if (this.selectedFile) {
+
+      fd.append('file', this.selectedFile, this.selectedFile.name);
+    } else {
+      // fd.append('file', null);
+    }
     let dto = JSON.parse(JSON.stringify(this.performer));
 
     //TO BE CHANGED

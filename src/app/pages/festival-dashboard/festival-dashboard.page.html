@@ -48,18 +48,18 @@
     <tr>
       <td>Add Stage / Room </td>
       <td>
-        <!-- <form (ngSubmit)="onRoomSubmit()" #roomForm="ngForm">
+        <form (ngSubmit)="onRoomSubmit()" #roomForm="ngForm">
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
               <ion-label position="floating">Stage / Room Name<ion-text color="danger">*</ion-text></ion-label>
-              <ion-input required type="text" [(ngModel)]="room.name" id="name" name="name" #name="ngModel"></ion-input>
+              <ion-input required type="text" [(ngModel)]="room.name" id="roomName" name="roomName" #roomName="ngModel"></ion-input>
             </ion-item>
           </ion-list>
           <div class="ion-padding">
             <ion-button type="submit" [disabled]="!roomForm.form.valid" class="ion-no-margin"><ion-icon name="add-circle-outline"></ion-icon> Add</ion-button>
           </div>
                
-       </form> -->
+       </form>
       </td>
     </tr>
     <tr>
