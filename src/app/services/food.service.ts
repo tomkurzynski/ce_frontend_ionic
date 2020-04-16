@@ -22,12 +22,12 @@ export class FoodService {
 
   //save
   saveFoodVendor(foodVendor: Food) {
-    this.httpClient.post<Food>(this.baseUrl, foodVendor);
+    return this.httpClient.post<Food>(this.baseUrl, foodVendor);
   }
 
   //update
   updateFoodVendow(foodVendor: Food) {
-    this.httpClient.put<Food>(this.baseUrl, foodVendor);
+    return this.httpClient.put<Food>(this.baseUrl, foodVendor);
   }
 
   //delete

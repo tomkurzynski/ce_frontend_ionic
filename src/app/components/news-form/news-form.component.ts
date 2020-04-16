@@ -26,9 +26,9 @@ export class NewsFormComponent{
 
     //TO BE VERIFIED
     dto.festival = {id: "1"};
-    fd.append('news', JSON.stringify(dto));
+    //fd.append('news', JSON.stringify(dto));
 
-    this.newsService.saveAsForm(fd).subscribe(result => this.gotoNewsList());
+    this.newsService.addNewsItem(dto).subscribe(result => this.gotoNewsList());
   }
 
   gotoNewsList() {

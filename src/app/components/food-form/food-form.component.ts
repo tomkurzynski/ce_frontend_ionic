@@ -24,7 +24,9 @@ export class FoodFormComponent{
 
 
     const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
+    if(this.selectedFile) {
+      fd.append('file', this.selectedFile, this.selectedFile.name);
+    }
 
     let dto = JSON.parse(JSON.stringify(this.food));
 
