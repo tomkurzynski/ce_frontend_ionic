@@ -35,25 +35,25 @@ export class AppComponent {
     // });
 
 
-    this.app.authenticate(undefined).subscribe(response => {
-      if (response['name']) {
-        this.app.authenticated = true;
-      } else {
-        this.app.authenticated = false;
-      }
-    },
-      () => {
-        this.app.authenticated = false;
-        that.router.navigateByUrl('/login')
-      })
+    // this.app.authenticate(undefined).subscribe(response => {
+    //   if (this.app.authorizationToken != null) {
+    //     this.app.authenticated = true;
+    //   } else {
+    //     this.app.authenticated = false;
+    //   }
+    // },
+    //   () => {
+    //     this.app.authenticated = false;
+    //     that.router.navigateByUrl('/login')
+    //   })
   }
 
-  logout() {
-    this.http.post('logout', {}).pipe(finalize(() => {
-      this.app.authenticated = false;
-      this.router.navigateByUrl('/login');
-    })).subscribe();
-  }
+  // logout() {
+  //   this.http.post('logout', {}).pipe(finalize(() => {
+  //     this.app.authenticated = false;
+  //     this.router.navigateByUrl('/login');
+  //   })).subscribe();
+  // }
 
   initializeApp() {
     this.platform.ready().then(() => {

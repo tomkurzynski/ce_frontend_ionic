@@ -12,6 +12,13 @@ export class LoginComponent {
 
   credentials = {username: '', password: ''};
 
+  username: string;
+  password : string;
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
+
   constructor(private app: AppService, private http: HttpClient, private router: Router) {
   }
 
@@ -34,4 +41,5 @@ export class LoginComponent {
 
     return false;
   }
+
 }
