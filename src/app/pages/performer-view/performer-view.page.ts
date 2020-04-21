@@ -5,6 +5,7 @@ import { PerformerService } from 'src/app/services/performer.service';
 import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Festival } from 'src/app/common/festival';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-performer-view',
@@ -16,14 +17,17 @@ export class PerformerViewPage implements OnInit {
   performer: Performers;
   sub: Subscription;
   selectedPath = '';
+  cookieValue= this.cookieService.get('festival-id');
 
 
   constructor(private performerService: PerformerService,
               private route: ActivatedRoute,
               private router: Router,
-              private domSanitizer: DomSanitizer) { 
+              private domSanitizer: DomSanitizer,
+              private cookieService: CookieService) { 
                 this.router.events.subscribe((event: RouterEvent) => {
                   this.selectedPath = event.url;
+                  this.cookieValue= this.cookieService.get('festival-id');
                 });
               }
 

@@ -14,9 +14,9 @@ export class FestivalsListComponent implements OnInit {
   constructor(private festivalService: FestivalService) { }
   // private festivalService: FestivalService
   ngOnInit() {
-    this.festivalService.getFestivalList().subscribe(data => {
-      this.festivals = data;
-    });
+    // this.festivalService.getFestivalList().subscribe(data => {
+    //   this.festivals = data;
+    // });
   }
 
 }

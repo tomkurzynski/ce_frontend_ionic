@@ -14,8 +14,8 @@ export class FoodService {
     private appService: AppService) { }
 
   //get all
-  getFoodVendorList() {
-    return this.httpClient.get<Food[]>(this.baseUrl);
+  getFoodVendorList(id: string) {
+    return this.httpClient.get<Food[]>(this.baseUrl + '/list/' + id);
   }
   //get by id
   getFoodVendor(id: string) {
@@ -35,7 +35,7 @@ export class FoodService {
   //delete
 
   deleteById(id: string) {
-    return this.httpClient.delete<Food>(this.baseUrl + '/' + id);
+    return this.httpClient.delete<Food>(this.baseUrl + '/' + id, {headers: this.appService.authorizationToken});
   }
 
   public saveAsForm(food: any) {

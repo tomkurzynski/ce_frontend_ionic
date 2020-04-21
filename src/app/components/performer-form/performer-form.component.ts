@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Performers } from 'src/app/common/performers';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerformerService } from 'src/app/services/performer.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-performer-form',
@@ -12,11 +13,14 @@ export class PerformerFormComponent {
 
   performer: Performers;
   selectedFile: File = null;
+  private cookieValue= this.cookieService.get('festival-id');
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private performerService: PerformerService) {
+              private performerService: PerformerService,
+              private cookieService: CookieService) {
                 this.performer = new Performers();
+                this.cookieValue= this.cookieService.get('festival-id');
                }
 
   onSubmit() {
@@ -30,7 +34,7 @@ export class PerformerFormComponent {
     let dto = JSON.parse(JSON.stringify(this.performer));
 
     //TO BE CHANGED
-    dto.festival = {id: "1"};
+    dto.festival = {id: this.cookieValue};
    // dto.photo = null;
     fd.append('performer', JSON.stringify(dto));
     //TO BE CHANGED END
@@ -39,7 +43,7 @@ export class PerformerFormComponent {
   }
 
   gotoPerformerList() {
-    this.router.navigate(['/tabs/tab1']);
+    this.router.navigate(['/tabs/tab1/festivals/{{ this.cookieValue }}/performers']);
   }
 
   onFileSelected(event) {

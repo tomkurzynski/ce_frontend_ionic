@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Food } from 'src/app/common/food';
 import { FoodService } from 'src/app/services/food.service';
+import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-foodvendors',
@@ -10,11 +12,20 @@ import { FoodService } from 'src/app/services/food.service';
 export class FoodvendorsPage implements OnInit {
 
   foodVendors: Food[];
+  cookieValue = this.cookieService.get('festival-id');
 
-  constructor(private foodService: FoodService) { }
+  constructor(private foodService: FoodService,
+    private cookieService: CookieService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.refreshList();
+    this.route.params.subscribe(val => {
+      this.cookieValue = this.cookieService.get('festival-id');
+      this.foodService.getFoodVendorList(this.cookieValue).subscribe(data => {
+        this.foodVendors = data;
+      });
+      
+    });
   }
 
   onClickFunction(id: string) {
@@ -22,7 +33,8 @@ export class FoodvendorsPage implements OnInit {
   }
 
   refreshList() {
-    this.foodService.getFoodVendorList().subscribe(data => {
+    this.cookieValue = this.cookieService.get('festival-id');
+    this.foodService.getFoodVendorList(this.cookieValue).subscribe(data => {
       this.foodVendors = data;
     });
   }

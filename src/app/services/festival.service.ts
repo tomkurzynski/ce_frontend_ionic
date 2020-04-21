@@ -13,8 +13,8 @@ export class FestivalService {
   constructor(private httpClient: HttpClient,
     private appService: AppService) { }
 
-  getFestivalList() {
-    return this.httpClient.get<Festival[]>(this.baseUrl);
+  getFestivalList(id: string) {
+    return this.httpClient.get<Festival[]>(this.baseUrl +'/list/' + id);
     // Festival
   }
 
@@ -36,6 +36,6 @@ export class FestivalService {
   }
 
   public deleteFestival(id: string) {
-    return this.httpClient.delete<Festival>(this.baseUrl + '/' + id);
+    return this.httpClient.delete<Festival>(this.baseUrl + '/' + id, {headers: this.appService.authorizationToken});
   }
 }

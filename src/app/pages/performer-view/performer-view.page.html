@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}/performers' size="large"
+        title="Go back"></ion-icon>
+    </ion-buttons>
     <ion-title> {{ performer.name }}</ion-title>
   </ion-toolbar>
 </ion-header>

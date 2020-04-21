@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Performers } from 'src/app/common/performers';
 import { PerformerService } from 'src/app/services/performer.service';
+import { CookieService } from 'ngx-cookie-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-performers',
@@ -10,11 +12,24 @@ import { PerformerService } from 'src/app/services/performer.service';
 export class PerformersPage implements OnInit {
 
   performers: Performers[];
+  cookieValue = this.cookieService.get('festival-id');
 
-  constructor(private performerService: PerformerService) { }
+  constructor(private performerService: PerformerService,
+    private cookieService: CookieService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.refreshList();
+    // this.refreshList();
+    this.route.params.subscribe(val => {
+      // put the code from `ngOnInit` here
+
+      this.cookieValue = this.cookieService.get('festival-id');
+
+      this.performerService.getPerformersList(this.cookieValue).subscribe(data => {
+        this.performers = data;
+      });
+      
+    });
   }
 
   onClickFunction(id: string) {
@@ -22,7 +37,8 @@ export class PerformersPage implements OnInit {
   }
 
   refreshList() {
-    this.performerService.getPerformersList().subscribe(data => {
+    this.cookieValue = this.cookieService.get('festival-id');
+    this.performerService.getPerformersList(this.cookieValue).subscribe(data => {
       this.performers = data;
     });
   }
