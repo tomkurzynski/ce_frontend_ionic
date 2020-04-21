@@ -35,17 +35,17 @@ export class AppComponent {
     // });
 
 
-    // this.app.authenticate(undefined).subscribe(response => {
-    //   if (this.app.authorizationToken != null) {
-    //     this.app.authenticated = true;
-    //   } else {
-    //     this.app.authenticated = false;
-    //   }
-    // },
-    //   () => {
-    //     this.app.authenticated = false;
-    //     that.router.navigateByUrl('/login')
-    //   })
+    this.app.authenticate(undefined).subscribe(response => {
+      if (this.app.authorizationToken != null) {
+        this.app.authenticated = true;
+      } else {
+        this.app.authenticated = false;
+      }
+    },
+      () => {
+        this.app.authenticated = false;
+        that.router.navigateByUrl('/login')
+      })
   }
 
   // logout() {

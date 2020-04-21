@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Food } from '../common/food';
+import { AppService } from './app.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class FoodService {
 
   private baseUrl = 'http://localhost:9090/api/foods';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+    private appService: AppService) { }
 
   //get all
   getFoodVendorList() {
@@ -22,12 +24,12 @@ export class FoodService {
 
   //save
   saveFoodVendor(foodVendor: Food) {
-    return this.httpClient.post<Food>(this.baseUrl, foodVendor);
+    return this.httpClient.post<Food>(this.baseUrl, foodVendor, {headers: this.appService.authorizationToken});
   }
 
   //update
   updateFoodVendow(foodVendor: Food) {
-    return this.httpClient.put<Food>(this.baseUrl, foodVendor);
+    return this.httpClient.put<Food>(this.baseUrl, foodVendor, {headers: this.appService.authorizationToken});
   }
 
   //delete
@@ -38,6 +40,7 @@ export class FoodService {
 
   public saveAsForm(food: any) {
     // festival.user = 'id":1';
-    return this.httpClient.post<any>(this.baseUrl, food);
+    // , {headers: this.appService.authorizationToken}
+    return this.httpClient.post<any>(this.baseUrl, food, {headers: this.appService.authorizationToken});
   }
 }

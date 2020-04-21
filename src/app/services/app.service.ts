@@ -21,9 +21,7 @@ export class AppService {
 
     
     const headers = new HttpHeaders(credentials ? {
-      Authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password),
-      'Content-Type': "application/json",
-      'Access-Control-Allow-Origin': "*"
+      Authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
     } : {},
     );
 

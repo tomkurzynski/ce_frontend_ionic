@@ -21,6 +21,10 @@ export class UserService {
     return this.httpClient.get<User>(this.baseUrl + '/' + id);
   }
 
+  getUserByEmail(email: string) {
+    return this.httpClient.get<User>('http://localhost:9090/api/user/' + email)
+  }
+
   //save
   saveUser(user: User) {
     this.httpClient.post<User>(this.baseUrl, user);
