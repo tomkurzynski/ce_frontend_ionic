@@ -17,7 +17,7 @@ export class PerformerViewPage implements OnInit {
   performer: Performers;
   sub: Subscription;
   selectedPath = '';
-  cookieValue= this.cookieService.get('festival-id');
+  cookieValue = '';
 
 
   constructor(private performerService: PerformerService,
@@ -51,6 +51,10 @@ export class PerformerViewPage implements OnInit {
     }
 
     return sanitizedUrl;
+  }
+
+  onClickFunction(id: string) {
+    this.performerService.deletePerformer(id).subscribe(() => { this.router.navigate(['/tabs/tab1/festivals/{{ cookieValue }}/performers']); });
   }
 
   getFestivalId() {

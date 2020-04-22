@@ -1,5 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}/foodvendors' size="large"
+        title="Cancel"></ion-icon>
+    </ion-buttons>
     <ion-title>
       Edit Food Vendor: {{ foodvendor.foodName }}
     </ion-title>
@@ -33,7 +37,7 @@
    </ion-list>
    <div class="ion-padding">
      <ion-button expand="block" type="submit" [disabled]="!foodvendorForm.form.valid" class="ion-no-margin">Save</ion-button>
-     <a mat-button routerLink="/tabs">Cancel</a>
+     <a mat-button routerLink="/tabs/tab1/festivals/{{ cookieValue }}/foodvendors">Cancel</a>
    </div>
         
 </form>

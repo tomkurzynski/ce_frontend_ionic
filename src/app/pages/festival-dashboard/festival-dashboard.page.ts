@@ -6,6 +6,7 @@ import { ActivatedRoute, RouterEvent, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RoomService } from 'src/app/services/room.service';
 import { Room } from 'src/app/common/room';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-festival-dashboard',
@@ -18,11 +19,13 @@ export class FestivalDashboardPage implements OnInit {
   festival: Festival;
   sub: Subscription;
   room: Room;
+  cookieValue = '';
 
   constructor(private festivalService: FestivalService, 
               private roomService: RoomService,
               private route: ActivatedRoute,
               private router: Router,
+              private cookieService: CookieService,
               private domSanitizer: DomSanitizer) { 
                 this.router.events.subscribe((event: RouterEvent) => {
                   this.selectedPath = event.url;
@@ -34,6 +37,7 @@ export class FestivalDashboardPage implements OnInit {
       this.festival = new Festival();
       this.room = new Room();
       const id = params['id'];
+      this.cookieValue = this.cookieService.get('festival-id');
       this.festivalService.getFestival(id).subscribe(data => {
         this.festival = data;
       });

@@ -1,5 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}/performers' size="large"
+        title="Cancel"></ion-icon>
+    </ion-buttons>
     <ion-title>
       Edit Performer: {{ performer.name }}
     </ion-title>
@@ -49,7 +53,7 @@
    </ion-list>
    <div class="ion-padding">
      <ion-button expand="block" type="submit" [disabled]="!performerForm.form.valid" class="ion-no-margin">Save</ion-button>
-     <a mat-button routerLink="/tabs">Cancel</a>
+     <a mat-button routerLink="/tabs/tab1/festivals/{{ cookieValue }}/performers">Cancel</a>
    </div>
         
 </form>

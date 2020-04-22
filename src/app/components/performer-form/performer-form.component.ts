@@ -13,7 +13,7 @@ export class PerformerFormComponent {
 
   performer: Performers;
   selectedFile: File = null;
-  private cookieValue= this.cookieService.get('festival-id');
+  cookieValue = '';
 
   constructor(private route: ActivatedRoute,
               private router: Router,

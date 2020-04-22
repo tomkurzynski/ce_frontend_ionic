@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}/foodvendors' size="large"
+        title="Go back"></ion-icon>
+    </ion-buttons>
     <ion-title>{{ foodvendor.foodName }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -28,7 +32,8 @@
       <td>{{ foodvendor.facebook }} </td>
     </tr>
     <tr>
-      <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger">Delete Food Vendor</ion-button>
+      <td colspan="2"><ion-button [routerLink]="['/updatefoodvendor/', foodvendor.id]">Change Details</ion-button><ion-button color="danger" (click)='onClickFunction(foodvendor.id)'
+        onclick="if (!(confirm('Are you sure you want to delete this food vendor?'))) return false">Delete Food Vendor</ion-button>
       </td>
     </tr>
   </tbody>

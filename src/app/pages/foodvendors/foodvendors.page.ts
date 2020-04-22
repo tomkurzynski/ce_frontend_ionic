@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class FoodvendorsPage implements OnInit {
 
   foodVendors: Food[];
-  cookieValue = this.cookieService.get('festival-id');
+  cookieValue = '';
 
   constructor(private foodService: FoodService,
     private cookieService: CookieService,

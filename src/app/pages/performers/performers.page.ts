@@ -42,4 +42,6 @@ export class PerformersPage implements OnInit {
       this.performers = data;
     });
   }
+
+  
 }

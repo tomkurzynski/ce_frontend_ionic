@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}/news' size="large"
+        title="Cancel"></ion-icon>
+    </ion-buttons>
     <ion-title>
-      Edit News Item: {{ newsItem.title }}
+      Edit News: {{ newsItem.title }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -25,7 +29,7 @@
    </ion-list>
    <div class="ion-padding">
      <ion-button expand="block" type="submit" [disabled]="!newsForm.form.valid" class="ion-no-margin">Save</ion-button>
-     <a mat-button routerLink="/tabs">Cancel</a>
+     <a mat-button routerLink="/tabs/tab1/festivals/{{ cookieValue }}/news">Cancel</a>
    </div>
         
 </form>

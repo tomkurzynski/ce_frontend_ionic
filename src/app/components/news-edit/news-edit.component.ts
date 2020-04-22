@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -12,16 +13,18 @@ import { NewsService } from 'src/app/services/news.service';
 export class NewsEditComponent implements OnInit, OnDestroy {
 
   newsItem: any = {};
-
+  cookieValue = '';
   sub: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private newsService: NewsService) { }
+              private newsService: NewsService,
+              private cookieService: CookieService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
+      this.cookieValue = this.cookieService.get('festival-id');
       if(id) {
         this.newsService.getNewsItemById(id).subscribe((newsItem: any) => {
           if(newsItem) {
@@ -41,7 +44,7 @@ export class NewsEditComponent implements OnInit, OnDestroy {
   }
 
   gotoNewsList() {
-    this.router.navigate(['/news']);
+    this.router.navigate(['/tabs/tab1/festivals/{{ cookieValue }}/news']);
   }
 
   save() {

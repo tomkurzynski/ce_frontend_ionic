@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FoodService } from 'src/app/services/food.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-foodvendor-edit',
@@ -13,13 +14,16 @@ export class FoodvendorEditComponent implements OnInit, OnDestroy {
   foodvendor: any = {};
   sub: Subscription;
   selectedFile: File = null;
+  cookieValue = '';
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private foodService: FoodService) { }
+              private foodService: FoodService,
+              private cookieService: CookieService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
+      this.cookieValue = this.cookieService.get('festival-id');
       const id = params['id'];
       if(id) {
         this.foodService.getFoodVendor(id).subscribe((foodvendor: any) => {
@@ -40,7 +44,7 @@ export class FoodvendorEditComponent implements OnInit, OnDestroy {
   }
 
   gotoFoodVendorList() {
-    this.router.navigate(['/tabs']);
+    this.router.navigate(['/tabs/tab1/festivals/{{ cookieValue }}/foodvendors']);
   }
 
   update() {
@@ -53,7 +57,7 @@ export class FoodvendorEditComponent implements OnInit, OnDestroy {
     let dto = JSON.parse(JSON.stringify(this.foodvendor));
 
     //TO BE VERIFIED
-    dto.festival = {id: "1"};
+    dto.festival = {id: this.cookieValue};
     fd.append('food', JSON.stringify(dto));
 
     //TO BE VERIFIED END

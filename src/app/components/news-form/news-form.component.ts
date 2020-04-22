@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { News } from 'src/app/common/news';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-news-form',
@@ -11,12 +12,14 @@ import { NewsService } from 'src/app/services/news.service';
 export class NewsFormComponent{
 
   newsItem: News;
-  selectedFile: File = null;
+  cookieValue = '';
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private newsService: NewsService) {
+              private newsService: NewsService,
+              private cookieService: CookieService) {
                 this.newsItem = new News();
+                this.cookieValue= this.cookieService.get('festival-id');
                }
 
   onSubmit() {
@@ -25,14 +28,14 @@ export class NewsFormComponent{
     let dto = JSON.parse(JSON.stringify(this.newsItem));
 
     //TO BE VERIFIED
-    dto.festival = {id: "1"};
+    dto.festival = {id: this.cookieValue};
     //fd.append('news', JSON.stringify(dto));
 
     this.newsService.addNewsItem(dto).subscribe(result => this.gotoNewsList());
   }
 
   gotoNewsList() {
-    this.router.navigate(['/tabs/tab1']);
+    this.router.navigate(['/tabs/tab1/festivals/{{cookieValue}}/news']);
   }
 
 }

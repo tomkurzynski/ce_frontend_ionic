@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
-import { FestivalsListModule } from '../../components/festivals-list/festivals-list.module'
+// import { FestivalsListModule } from '../../components/festivals-list/festivals-list.module'
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { FestivalsListModule } from '../../components/festivals-list/festivals-l
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    FestivalsListModule,
+    // FestivalsListModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
     
   ],

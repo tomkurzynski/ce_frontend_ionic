@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { FoodService } from 'src/app/services/food.service';
 import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-foodvendor-view',
@@ -15,13 +16,16 @@ export class FoodvendorViewPage implements OnInit {
   foodvendor: Food;
   sub: Subscription;
   selectedPath = '';
+  cookieValue = '';
 
 
   constructor(private foodService: FoodService,
               private route: ActivatedRoute,
               private router: Router,
+              private cookieService: CookieService,
               private domSanitizer: DomSanitizer) { 
                 this.router.events.subscribe((event: RouterEvent) => {
+                  this.cookieValue = this.cookieService.get('festival-id');
                   this.selectedPath = event.url;
                 });
               }
@@ -43,6 +47,10 @@ export class FoodvendorViewPage implements OnInit {
       bypassSecurityTrustResourceUrl("data:image/png;base64, " + this.foodvendor.logoUrl);
     }
     return sanitizedUrl;
+  }
+
+  onClickFunction(id: string) {
+    this.foodService.deleteById(id).subscribe(() => this.router.navigate(['/tabs/tab1/festivals/{{ cookieValue }}/foodvendors']));
   }
 
   getFestivalId() {

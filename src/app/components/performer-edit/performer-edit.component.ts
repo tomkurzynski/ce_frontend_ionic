@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerformerService } from 'src/app/services/performer.service';
 import { NgForm } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-performer-edit',
@@ -14,14 +15,17 @@ export class PerformerEditComponent implements OnInit, OnDestroy {
   performer: any = {};
   sub: Subscription;
   selectedFile: File = null;
+  cookieValue = '';
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private performerService: PerformerService) { }
+              private performerService: PerformerService,
+              private cookieService: CookieService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
+      this.cookieValue = this.cookieService.get('festival-id');
       if(id) {
         this.performerService.getPerformerbyId(id).subscribe((performer: any) => {
           if(performer) {
@@ -41,7 +45,7 @@ export class PerformerEditComponent implements OnInit, OnDestroy {
   }
 
   gotoPerformerList() {
-    this.router.navigate(['/tabs']);
+    this.router.navigate(['/tabs/tab1/festivals/{{ cookieValue }}/performers']);
   }
 
   // save() {
@@ -60,7 +64,7 @@ export class PerformerEditComponent implements OnInit, OnDestroy {
     let dto = JSON.parse(JSON.stringify(this.performer));
 
     //TO BE VERIFIED
-    dto.festival = {id: "1"};
+    dto.festival = {id: this.cookieValue};
     fd.append('performer', JSON.stringify(dto));
 
     //TO BE VERIFIED END

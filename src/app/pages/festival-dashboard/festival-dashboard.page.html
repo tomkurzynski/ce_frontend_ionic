@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/tabs/tab1/' size="large"
+        title="Go back"></ion-icon>
+    </ion-buttons>
       <ion-title>{{ festival.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -63,7 +67,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2"><ion-button>Change Details</ion-button><ion-button color="danger" (click)='onClickFunction(festival.id)'
+      <td colspan="2"><ion-button [routerLink]="['festivals/']">Change Details</ion-button><ion-button color="danger" (click)='onClickFunction(festival.id)'
         onclick="if (!(confirm('Are you sure you want to delete this event? This will permanently delete all Performers, News and Food Vendors associated with the event!'))) return false">Delete Event</ion-button>
       </td>
     </tr>

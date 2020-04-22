@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Festival } from 'src/app/common/festival';
 import { FestivalService } from 'src/app/services/festival.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -14,10 +15,18 @@ export class Tab1Page implements OnInit {
   private cookieValue = this.cookieService.get('user-id');
 
   constructor(private festivalService: FestivalService,
-    private cookieService: CookieService) { }
+    private cookieService: CookieService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.refreshList();
+    // this.refreshList();
+    this.route.params.subscribe(val => {
+      this.cookieValue = this.cookieService.get('user-id');
+      this.festivalService.getFestivalList(this.cookieValue).subscribe(data => {
+        this.festivals = data;
+      });
+      
+    });
   }
   refreshList() {
     this.cookieValue = this.cookieService.get('user-id');
@@ -30,7 +39,7 @@ export class Tab1Page implements OnInit {
     this.festivalService.deleteFestival(id).subscribe(() => { this.refreshList(); });
   }
 
-  cookie(id: string) {
+  festivalCookie(id: string) {
     this.cookieService.set('festival-id', id);
   }
 

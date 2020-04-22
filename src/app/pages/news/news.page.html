@@ -1,15 +1,14 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}' size="large"
+        title="Go back"></ion-icon>
+    </ion-buttons>
     <ion-title>News</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="left" slot="fixed">
-    <ion-fab-button routerLink="tab1/festivals/:id" title="Go back">
-      <ion-icon name="arrow-back-circle"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
   <ion-fab vertical="top" horizontal="center" slot="fixed">
     <ion-fab-button routerLink="/addnews" title="Add News Item">
       <ion-icon name="add"></ion-icon>
@@ -21,7 +20,7 @@
   <div class="container">
     <ion-list>
       <ion-item *ngFor="let newsItem of news">
-        <ion-label>{{ newsItem.title }}<h5>Last updated: {{ newsItem.lastUpdated }}</h5><h6>Created: {{ newsItem.dateCreated }}</h6></ion-label>
+        <ion-label>{{ newsItem.title }}<h6>Created: {{ newsItem.dateCreated }}</h6></ion-label>
         
         <ion-button [routerLink]="['/newsitem/', newsItem.id]">View</ion-button>
         <ion-button [routerLink]="['/updatenews/', newsItem.id]">Edit</ion-button>
