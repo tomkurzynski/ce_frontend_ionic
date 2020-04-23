@@ -62,6 +62,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/news-edit/news-edit.module').then(m => m.NewsEditModule)
   },
   {
+    path: 'updatefestival/:id',
+    loadChildren: () => import('./components/festivals-edit/festivals-edit.module').then(m => m.FestivalsEditModule)
+  },
+  {
     path: 'room',
     loadChildren: () => import('./pages/room/room.module').then( m => m.RoomPageModule)
   }

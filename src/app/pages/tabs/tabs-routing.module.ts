@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-import { FestivalsListComponent } from '../../components/festivals-list/festivals-list.component';
-import { FestivalsFormComponent } from '../../components/festivals-form/festivals-form.component';
+// import { FestivalsListComponent } from '../../components/festivals-list/festivals-list.component';
+// import { FestivalsFormComponent } from '../../components/festivals-form/festivals-form.component';
 
 const routes: Routes = [
   {

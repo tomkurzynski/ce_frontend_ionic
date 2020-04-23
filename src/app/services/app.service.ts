@@ -32,6 +32,25 @@ export class AppService {
 
   }
 
+
+  //CODE TO BE CHANGED - BASE URL TO BE UPDATED
+
+  
+  register(credentials) {
+
+    
+    const headers = new HttpHeaders(credentials ? {
+      Authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
+    } : {},
+    );
+
+
+    this.authorizationToken = headers;
+    
+    this.httpClient.post(this.baseUrl, { headers: headers });
+
+  }
+
   // logout() {
   //   this.httpClient.post('logout', {}).pipe(finalize(() => {
   //     this.authorizationToken = null;

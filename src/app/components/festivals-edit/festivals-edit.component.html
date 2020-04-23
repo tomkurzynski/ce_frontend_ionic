@@ -1,25 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" routerLink='/tabs/tab1' size="large"
+        title="Cancel"></ion-icon>
+    </ion-buttons>
     <ion-title>
-      Add Event
+      Edit Event: {{ festival.name }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
  
-  <ion-fab vertical="top" horizontal="center" slot="fixed">
-    <ion-fab-button routerLink="/tabs/tab1" title="Go back">
-      <ion-icon name="arrow-back-circle"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
- 
  <br>
  <br>
- <div class="container">
- <form (ngSubmit)="onSubmit()" #festivalForm="ngForm">
+
+ <form (ngSubmit)="update()" #festivalForm="ngForm">
    <ion-list lines="full" class="ion-no-margin ion-no-padding">
      <ion-item>
+       <ion-input type="hidden" name="href" [(ngModel)]="festival.href"></ion-input>
        <ion-label position="floating">Event Name<ion-text color="danger">*</ion-text></ion-label>
        <ion-input required type="text" [(ngModel)]="festival.name" id="name" name="name" #name="ngModel"></ion-input>
      </ion-item>
@@ -33,10 +32,8 @@
      </ion-item>
      <ion-item>
        <ion-label>End Date<ion-text color="danger">*</ion-text></ion-label>
-       <ion-datetime required [min]="festival.dateFrom" max="2023-12-31" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime>
-       <!-- <ion-datetime required [min]="2020" max="2023-12-31" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime> -->
-
-      </ion-item>
+       <ion-datetime required [min]="2020" max="2023-12-31" placeholder="Select Date" [(ngModel)]="festival.dateTo" id="dateTo" name="dateTo" #dateTo="ngModel"></ion-datetime>
+     </ion-item>
      <ion-item>
       <ion-label position="floating">Location<ion-text color="danger">*</ion-text></ion-label>
       <ion-input type="text" required [(ngModel)]="festival.location" id="location" name="location" #location="ngModel"></ion-input>
@@ -52,17 +49,13 @@
 
       <ion-item>
         <ion-label>Logo</ion-label>
-        <!-- <ion-input type="file" [(ngModel)]="festival.logoUrl" id="logoUrl" name="logoUrl" #logoUrl="ngModel"></ion-input> -->
         <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
-        <!-- (change)="onFileSelected($event)" -->
       </ion-item>
    </ion-list>
    <div class="ion-padding">
-     <ion-button expand="block" type="submit" [disabled]="!festivalForm.form.valid" class="ion-no-margin">Create</ion-button>
+     <ion-button expand="block" type="submit" [disabled]="!festivalForm.form.valid" class="ion-no-margin">Save</ion-button>
+     <a mat-button routerLink="/tabs/tab1/festivals/">Cancel</a>
    </div>
         
 </form>
-</div>
-
 </ion-content>
-

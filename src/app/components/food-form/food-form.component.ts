@@ -13,7 +13,7 @@ export class FoodFormComponent{
 
   food: Food;
   selectedFile: File = null;
-  private cookieValue= this.cookieService.get('festival-id');
+  private cookieValue = '';
 
   constructor(private route: ActivatedRoute,
               private router: Router,

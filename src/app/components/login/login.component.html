@@ -1,11 +1,43 @@
+<!-- <ion-grid>
+    <ion-row justify-content-center>
  <form role="form" (submit)="login()">
 	<div class="form-group">
-		<label for="username">Username:</label> <input type="text"
+		<label for="username">Email:</label> <input type="text"
 			class="form-control" id="username" name="username" [(ngModel)]="credentials.username"/>
 	</div>
 	<div class="form-group">
 		<label for="password">Password:</label> <input type="password"
 			class="form-control" id="password" name="password" [(ngModel)]="credentials.password"/>
 	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" size="large" expand="block">Submit</button>
 </form>
+</ion-row>
+</ion-grid> -->
+
+<ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4>Login Form</h4>
+		</div>
+		<form role="form" (submit)="login()">
+        <div padding>
+          <ion-item>
+            <ion-input type="email" placeholder="Email Address" id="username" name="username" [(ngModel)]="credentials.username"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-input type="password" placeholder="Password" id="password" name="password" [(ngModel)]="credentials.password"></ion-input>
+          </ion-item>
+        </div>
+  
+        <div padding>
+          <ion-button size="large" type="submit" expand="block">Login</ion-button>
+		</div>
+		<div padding>
+			<a mat-button routerLink="/tabs/tab1/festivals/">Create Account</a>
+		  </div>
+		</form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
