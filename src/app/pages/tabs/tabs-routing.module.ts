@@ -92,6 +92,19 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'tab1/festivals/:id/rooms',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+
+              // import('../menu/menu.module').then(m => m.MenuPageModule)
+              import('../../pages/room/room.module').then(m => m.RoomPageModule)
+
+          }
+        ]
+      },
+      {
         path: 'login',
         loadChildren: () => import('../../components/login/login.module').then( m => m.LoginModule)
       },

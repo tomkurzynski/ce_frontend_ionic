@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PerformersPage implements OnInit {
 
   performers: Performers[];
-  cookieValue = this.cookieService.get('festival-id');
+  cookieValue = '';
 
   constructor(private performerService: PerformerService,
     private cookieService: CookieService,

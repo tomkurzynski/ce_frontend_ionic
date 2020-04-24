@@ -13,7 +13,8 @@ export class RegisterComponent{
   user: User;
 
   constructor(private app: AppService,
-              private router: Router) { }
+              private router: Router) { 
+              }
 
   onSubmit() {
     const fd = new FormData();
@@ -24,5 +25,14 @@ export class RegisterComponent{
     this.app.register(fd);
     this.router.navigateByUrl('/login')
   }
+
+  // validatePassword(){
+  //   if(dto.password != doNotTrack.password_confirmation) {
+  //     confirm_password.setCustomValidity("Passwords Don't Match");
+  //   } else {
+  //     confirm_password.setCustomValidity('');
+  //   }
+  // }
+
 
 }

@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>room</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}' size="large"
+        title="Go back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Stages / Rooms</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let room of rooms">
+      <ion-label>
+        <h2>{{ room.name }}</h2>
+        <h3>I'm a big deal</h3>
+        <p>Listen, I've had a pretty messed up day...</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

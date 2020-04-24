@@ -1,25 +1,25 @@
-<form role="form" (submit)="onSubmit()" #registrationForm="ngForm">
+<form role="form" (submit)="onSubmit()">
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
       <ion-label position="floating">First Name<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input></ion-input>
+      <ion-input required type="text" id="firstName" name="firstName"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Last Name<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input></ion-input>
+      <ion-input required type="text" id="lastName" name="lastName" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Email<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input></ion-input>
+      <ion-input required type="email" id="email" name="email" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Password<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input></ion-input>
+      <ion-input required type="password" id="password" name="password"></ion-input>
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label position="floating">Confirm Password<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+      <ion-input required type="password" id="password_confirmation" name="password_confirmation" ></ion-input>
+    </ion-item> -->
   </ion-list>
 	<!-- <div class="form-group">
 		<label for="username">Username:</label> <input type="text"

@@ -65,16 +65,17 @@ export class FestivalDashboardPage implements OnInit {
 
   onRoomSubmit() {
     const fd = new FormData();
-
+    fd.append('file', null);
+    
     let dto = JSON.parse(JSON.stringify(this.room));
 
     //TO BE VERIFIED
-    dto.festival = {id: "1"};
+    dto.festival = {id: this.cookieValue};
     // fd.append('room', JSON.stringify(dto));
 
     // this.roomService.saveAsForm(fd).subscribe(result => this.gotoFestivalList());
 
-    this.roomService.createRoom(dto).subscribe((data) => {
+    this.roomService.saveAsForm(dto).subscribe((data) => {
       console.log(data);
     });
   }

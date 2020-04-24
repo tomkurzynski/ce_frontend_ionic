@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 
 import { finalize } from 'rxjs/operators'
 
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -25,7 +24,7 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
 
-
+    
     let that = this;
 
     this.app.authenticate(undefined).subscribe(response => {

@@ -32,9 +32,9 @@
         </tr>
         <tr>
           <td colspan="2">
-            <ion-button>Change Details</ion-button>
-            <ion-button>Change Password</ion-button>
-            <ion-button color="danger">Delete Account</ion-button>
+             <ion-button color="danger" (click)='remove(user.id)'
+              onclick="if (!(confirm('Are you sure you want to delete this account? This will permanently delete all Events, Performers, News and Food Vendors associated with the event!'))) return false">
+              Delete Account</ion-button>
           </td>
           
         </tr>

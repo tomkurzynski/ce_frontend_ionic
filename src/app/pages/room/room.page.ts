@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomService } from 'src/app/services/room.service';
+import { CookieService } from 'ngx-cookie-service';
+import { ActivatedRoute } from '@angular/router';
+import { Room } from 'src/app/common/room';
 
 @Component({
   selector: 'app-room',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomPage implements OnInit {
 
-  constructor() { }
+  rooms: Room[];
+  cookieValue = '';
+
+  constructor(private roomService: RoomService,
+              private cookieService: CookieService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(val => {
+      // put the code from `ngOnInit` here
+
+      this.cookieValue = this.cookieService.get('festival-id');
+
+      this.roomService.getRooms(this.cookieValue).subscribe(data => {
+        this.rooms = data;
+      });
+      
+    });
   }
 
 }
