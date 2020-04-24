@@ -18,6 +18,7 @@ export class RegisterComponent{
   onSubmit() {
     const fd = new FormData();
     let dto = JSON.parse(JSON.stringify(this.user));
+    dto.password = btoa(dto.password);
     dto.festival = {id: dto.festival};
     fd.append('festival', JSON.stringify(dto));
     this.app.register(fd);

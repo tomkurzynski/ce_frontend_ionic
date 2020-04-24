@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/login/login.module').then( m => m.LoginModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule)
+  },
+  {
     path: 'addfood',
     loadChildren: () => import('./components/food-form/food-form.module').then( m => m.FoodFormModule)
   },

@@ -27,13 +27,6 @@ export class AppComponent {
 
 
     let that = this;
-    // this.app.authenticate(undefined, function () {
-    //   if (!that.app.authenticated) {
-
-    //     that.router.navigateByUrl('/login')
-    //   }
-    // });
-
 
     this.app.authenticate(undefined).subscribe(response => {
       if (this.app.authorizationToken != null) {
