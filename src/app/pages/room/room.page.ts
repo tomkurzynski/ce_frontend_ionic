@@ -31,4 +31,15 @@ export class RoomPage implements OnInit {
     });
   }
 
+  onClickFunction(id: string) {
+    this.roomService.deleteRoom(id).subscribe(() => { this.refreshList(); });
+  }
+
+  refreshList() {
+    this.cookieValue = this.cookieService.get('festival-id');
+    this.roomService.getRooms(this.cookieValue).subscribe(data => {
+      this.rooms = data;
+    });
+  }
+
 }

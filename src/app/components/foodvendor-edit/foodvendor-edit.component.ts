@@ -31,7 +31,7 @@ export class FoodvendorEditComponent implements OnInit, OnDestroy {
             this.foodvendor = foodvendor;
             this.foodvendor.href = foodvendor._links.self.href;
           } else {
-            console.log(`Performer with id '${id}' not found, returning to performer list`);
+            console.log(`Food vendor with id '${id}' not found, returning to FoodVendor list`);
             this.gotoFoodVendorList;
           }
         });
@@ -55,15 +55,9 @@ export class FoodvendorEditComponent implements OnInit, OnDestroy {
     }
 
     let dto = JSON.parse(JSON.stringify(this.foodvendor));
-
-    //TO BE VERIFIED
     dto.festival = {id: this.cookieValue};
     fd.append('food', JSON.stringify(dto));
-
-    //TO BE VERIFIED END
-
     this.foodService.saveAsForm(fd).subscribe(result => this.gotoFoodVendorList());
-
   }
 
   remove(href) {

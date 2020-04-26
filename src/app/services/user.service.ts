@@ -29,7 +29,7 @@ export class UserService {
 
   //save
   saveUser(user: User) {
-    this.httpClient.post<User>(this.baseUrl, user, {headers: this.appService.authorizationToken});
+    return this.httpClient.post<User>(this.baseUrl, user, {headers: this.appService.authorizationToken});
   }
 
   //update

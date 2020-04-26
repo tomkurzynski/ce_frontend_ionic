@@ -24,25 +24,15 @@ export class FoodFormComponent{
      }
 
   onSubmit() {
-    // this.festivalService.save(this.festival).subscribe(result => this.gotoFestivalList());
-
-
     const fd = new FormData();
     if(this.selectedFile) {
       fd.append('file', this.selectedFile, this.selectedFile.name);
     }
 
     let dto = JSON.parse(JSON.stringify(this.food));
-
-    //TO BE VERIFIED
     dto.festival = {id: this.cookieValue};
     fd.append('food', JSON.stringify(dto));
-
-    //TO BE VERIFIED END
-
     this.foodService.saveAsForm(fd).subscribe(result => this.gotoFoodList());
-
-
   }
 
   gotoFoodList() {

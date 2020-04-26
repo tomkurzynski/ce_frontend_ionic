@@ -35,11 +35,11 @@ export class RoomService {
 
   //delete
   deleteRoom(id: string) {
-    this.httpClient.delete<Room>(this.baseUrl + '/' + id, {headers: this.appService.authorizationToken});
+    return this.httpClient.delete<Room>(this.baseUrl + '/' + id, {headers: this.appService.authorizationToken});
   }
 
   public saveAsForm(room: any) {
-    return this.httpClient.post<any>(this.baseUrl, room, {headers: this.appService.authorizationToken});
+    return this.httpClient.post<any>(this.baseUrl + '/save', room, {headers: this.appService.authorizationToken});
   }
 }
 

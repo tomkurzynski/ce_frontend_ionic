@@ -71,16 +71,16 @@ const routes: Routes = [
   },
   {
     path: 'room',
-    loadChildren: () => import('./pages/room/room.module').then( m => m.RoomPageModule)
+    loadChildren: () => import('./pages/room/room.module').then(m => m.RoomPageModule)
+  },
+  {
+    path: 'updateroom/:id',
+    loadChildren: () => import('./components/room-edit/room-edit.module').then(m => m.RoomEditModule)
+  },
+  {
+    path: 'addroom',
+    loadChildren: () => import('./components/room-form/room-form.module').then(m => m.RoomFormModule)
   }
-  
- 
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
-  // },
-
-
 ];
 @NgModule({
   imports: [

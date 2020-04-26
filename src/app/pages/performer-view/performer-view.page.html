@@ -24,29 +24,42 @@
         <td colspan="2"><img [src]="sanitizeIframeSrc()" alt="Performer Photo" /> </td>
       </tr>
     <tr>
-      <td>About Performer</td>
+      <td>About: </td>
       <td>{{ performer.description }}</td>
     </tr>
     <tr>
-      <td>Website URL:</td>
+      <td colspan="2">
+        <a href="{{ performer.webUrl }}" target="_blank"><ion-icon class="icon" name="globe-outline" size="large"> </ion-icon></a>
+        <a href="{{ performer.facebook }}" target="_blank"><ion-icon class="icon" name="logo-facebook" size="large"></ion-icon></a>
+        <a href="{{ performer.twitter }}" target="_blank"><ion-icon class="icon" name="logo-twitter" size="large"></ion-icon></a>
+        <a href="{{ performer.youtube }}" target="_blank"><ion-icon class="icon" name="logo-youtube" size="large"></ion-icon></a>
+        <a href="{{ performer.spotify }}" target="_blank"><ion-icon class="icon" name="musical-notes" size="large"></ion-icon></a>
+      </td>
+      
+    </tr>
+    <!-- <tr>
+      <td><ion-icon name="globe-outline" size="large"></ion-icon></td>
       <td>{{ performer.webUrl }} </td>
     </tr>
     <tr>
-      <td>Facebook URL:</td>
-      <td>{{ performer.facebook }} </td>
+      <td><ion-icon name="logo-facebook" size="large"></ion-icon></td>
+      <td>{{ performer.facebook}} </td>
     </tr>
     <tr>
-      <td>Twitter URL:</td>
+      <td> <ion-icon name="logo-twitter" size="large"></ion-icon></td>
       <td>{{ performer.twitter }} </td>
+      <td></td>
     </tr>
     <tr>
-      <td>YouTube Channel:</td>
+      <td><ion-icon name="logo-youtube" size="large"></ion-icon></td>
       <td>{{ performer.youtube }} </td>
+      <td></td>
     </tr>
     <tr>
-      <td>Spotify Profile:</td>
+      <td>  <ion-icon name="musical-notes" size="large"></ion-icon>:</td>
       <td>{{ performer.spotify }} </td>
-    </tr>
+      <td></td>
+    </tr> -->
     <tr>
       <td colspan="2">
         <ion-button [routerLink]="['/updateperformer/', performer.id]">Change Details</ion-button>

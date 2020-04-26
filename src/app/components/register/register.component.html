@@ -1,33 +1,31 @@
-<form role="form" (submit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
       <ion-label position="floating">First Name<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required type="text" id="firstName" name="firstName"></ion-input>
+      <ion-input required type="text" [(ngModel)]="user.firstName" id="firstName" name="firstName" #firstName="ngModel"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Last Name<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required type="text" id="lastName" name="lastName" ></ion-input>
+      <ion-input required type="text" [(ngModel)]="user.lastName" id="lastName" name="lastName" #lastName="ngModel"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Email<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required type="email" id="email" name="email" ></ion-input>
+      <ion-input required type="email" [(ngModel)]="user.email" id="email" name="email" #email="ngModel"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Password<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required type="password" id="password" name="password"></ion-input>
+      <ion-input required type="password" id="password" name="password" [(ngModel)]="user.password" #password="ngModel"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirm Password<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="password" id="password_confirmation" name="password_confirmation" [(ngModel)]="passConfirm"></ion-input>
+    </ion-item>
+
     <!-- <ion-item>
       <ion-label position="floating">Confirm Password<ion-text color="danger">*</ion-text></ion-label>
       <ion-input required type="password" id="password_confirmation" name="password_confirmation" ></ion-input>
     </ion-item> -->
   </ion-list>
-	<!-- <div class="form-group">
-		<label for="username">Username:</label> <input type="text"
-			class="form-control" id="username" name="username" [(ngModel)]="credentials.username"/>
-	</div>
-	<div class="form-group">
-		<label for="password">Password:</label> <input type="password"
-			class="form-control" id="password" name="password" [(ngModel)]="credentials.password"/>
-	</div> -->
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<ion-button expand="block" type="submit" [disabled]="!registrationForm.form.valid" class="ion-no-margin">Create</ion-button>
 </form>

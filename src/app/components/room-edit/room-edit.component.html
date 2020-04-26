@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="close-outline" routerLink='/tabs/tab1/festivals/{{ cookieValue }}/rooms' size="large"
+        title="Cancel"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Edit Room / Stage: {{ room.name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <br>
+  <br>
+    <form (ngSubmit)="update()" #roomStageForm="ngForm">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+         <ion-input type="hidden" name="href" [(ngModel)]="room.href"></ion-input>
+        <ion-label position="floating">Room / Stage Name<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" [(ngModel)]="room.name" id="name" name="name" #name="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label>Timetable file</ion-label>
+         <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+       </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="!roomStageForm.form.valid" class="ion-no-margin">Save</ion-button>
+      <a mat-button routerLink="/tabs/tab1/festivals/{{ cookieValue }}/rooms">Cancel</a>
+    </div>
+         
+ </form>
+ </ion-content>

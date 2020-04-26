@@ -11,7 +11,7 @@ export class NewsService {
   private baseUrl = 'http://localhost:9090/api/news';
 
   constructor(private httpClient: HttpClient,
-              private appService: AppService) { }
+    private appService: AppService) { }
 
   //view all
   getNewsList(id: string) {
@@ -25,20 +25,20 @@ export class NewsService {
 
   //add
   addNewsItem(newsItem: News) {
-    return this.httpClient.post<News>(this.baseUrl, newsItem, {headers: this.appService.authorizationToken});
+    return this.httpClient.post<News>(this.baseUrl, newsItem, { headers: this.appService.authorizationToken });
   }
 
   //update
   updateNewsItem(newsItem: News) {
-    return this.httpClient.put<News>(this.baseUrl + '/' + newsItem.id, newsItem, {headers: this.appService.authorizationToken});
+    return this.httpClient.put<News>(this.baseUrl + '/' + newsItem.id, newsItem, { headers: this.appService.authorizationToken });
   }
 
   //delete
   deleteNewsItem(id: string) {
-    return this.httpClient.delete<News>(this.baseUrl + '/' + id, {headers: this.appService.authorizationToken});
+    return this.httpClient.delete<News>(this.baseUrl + '/' + id, { headers: this.appService.authorizationToken });
   }
 
   public saveAsForm(newsItem: any) {
-    return this.httpClient.post<any>(this.baseUrl, newsItem, {headers: this.appService.authorizationToken});
+    return this.httpClient.post<any>(this.baseUrl, newsItem, { headers: this.appService.authorizationToken });
   }
 }

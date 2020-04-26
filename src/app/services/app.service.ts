@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { finalize } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class AppService {
   authenticated = false;
   public authorizationToken;
   private baseUrl = 'http://localhost:9090/api/user';
-  
+
 
   constructor(private httpClient: HttpClient) {
   }
@@ -19,7 +18,7 @@ export class AppService {
 
   authenticate(credentials) {
 
-    
+
     const headers = new HttpHeaders(credentials ? {
       Authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
     } : {},
@@ -27,18 +26,14 @@ export class AppService {
 
 
     this.authorizationToken = headers;
-    
+
     return this.httpClient.get(this.baseUrl, { headers: headers });
 
   }
 
-
-  //CODE TO BE CHANGED - BASE URL TO BE UPDATED
-
-  
   register(credentials) {
 
-    
+
     const headers = new HttpHeaders(credentials ? {
       Authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
     } : {},
@@ -46,17 +41,8 @@ export class AppService {
 
 
     this.authorizationToken = headers;
-    
+
     this.httpClient.post(this.baseUrl, { headers: headers });
 
   }
-
-  // logout() {
-  //   this.httpClient.post('logout', {}).pipe(finalize(() => {
-  //     this.authorizationToken = null;
-  //     this.router.navigateByUrl('/login');
-  //   })).subscribe();
-  // }
-
-
 }
