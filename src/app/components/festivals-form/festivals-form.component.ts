@@ -34,12 +34,9 @@ export class FestivalsFormComponent {
 
     let dto = JSON.parse(JSON.stringify(this.festival));
 
-    //TO BE VERIFIED
     dto.user = {id: this.cookieValue};
     dto.food = {id: dto.food};
     fd.append('festival', JSON.stringify(dto));
-
-    //TO BE VERIFIED END
 
     this.festivalService.saveAsForm(fd).subscribe(result => this.gotoFestivalList());
   }

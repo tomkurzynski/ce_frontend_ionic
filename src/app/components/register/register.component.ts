@@ -29,23 +29,12 @@ export class RegisterComponent{
 
     } else {
       dto.password = btoa(dto.password);
-      // fd.append('festival', JSON.stringify(dto));
       this.userService.saveUser(dto).subscribe(() => {
         this.router.navigateByUrl('/login')
       }, () => {
-alert("dupa");
+        alert("Failed to register");
       });
       
     }
   }
-
-  // validatePassword(){
-  //   if(dto.password != doNotTrack.password_confirmation) {
-  //     confirm_password.setCustomValidity("Passwords Don't Match");
-  //   } else {
-  //     confirm_password.setCustomValidity('');
-  //   }
-  // }
-
-
 }
